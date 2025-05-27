@@ -19,7 +19,7 @@ public class Inversion {
     private int tipoMovimiento;
     private int tipoTransaccion;
 
-    // ✅ Constructor completo
+    // Constructor completo
     public Inversion(String nombre, String tipoInversion, BigDecimal monto, BigDecimal rentabilidad,
                      Date fechaInicio, String descripcion, int cuentaBancaria, int estado,
                      int tipoInversionId, int categoriaSalida, int categoriaIngreso,
@@ -39,7 +39,9 @@ public class Inversion {
         this.tipoMovimiento = tipoMovimiento;
         this.tipoTransaccion = tipoTransaccion;
     }
-
+    public Inversion() {
+        // Constructor por defecto
+    }
     // Getters
     public String getNombre() { return nombre; }
     public String getTipoInversion() { return tipoInversion; }

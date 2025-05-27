@@ -3,8 +3,7 @@ import java.util.Scanner;
 import Controlador.*;
 
 
-public class menu {
-    public static void main(String[] args) {
+public class menu {    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         InversionController controller = new InversionController();
         GastoController gastoController = new GastoController();
@@ -12,15 +11,19 @@ public class menu {
         System.out.println("Seleccione un escenario (1-5):");
         int opcion = scanner.nextInt();
         switch (opcion) {
-            case 2:              
+            case 2:
+
+                
                 gastoController.ejecutarEscenario();
                 break;
             case 4:
-                  controller.ejecutarEscenario();
+                 controller.escenario4();
+                 break;
             default:
                 break;
         }
-      
+
+         scanner.close();
 
     }
 }

@@ -30,16 +30,16 @@ public class App {
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println(" Conexión exitosa");
 
-             Gasto gasto = new Gasto(
-                500.0,
-                new Date(), // hoy
-                "Pago de Uber",
-                1, // categoría transporte
-                6, // id cuenta bancaria
-                1 // método pago efectivo            
-            );
+            //  Gasto gasto = new Gasto(
+            //     500.0,
+            //     new Date(), // hoy
+            //     "Pago de Uber",
+            //     1, // categoría transporte
+            //     6, // id cuenta bancaria
+            //     1 // método pago efectivo            
+            // );
 
-             GastoDAO.insertarGasto(gasto);
+            // GastoDAO.insertarGasto(gasto);
          
 
 
