@@ -11,10 +11,11 @@ public class FondoEmergencia {
     private int cuentaBancaria;
     private int estado;
     private int proposito;
+    private int cTipoMoneda;
 
     // Constructor completo (sin ID, ya que se genera en BD)
     public FondoEmergencia(double montoInicial, double montoActual, Date fechaCreacion,
-                           String descripcion, int cuentaBancaria, int estado, int proposito) {
+                           String descripcion, int cuentaBancaria, int estado, int proposito, int cTipoMoneda) {
         this.montoInicial = montoInicial;
         this.montoActual = montoActual;
         this.fechaCreacion = fechaCreacion;
@@ -22,16 +23,15 @@ public class FondoEmergencia {
         this.cuentaBancaria = cuentaBancaria;
         this.estado = estado;
         this.proposito = proposito;
+        this.cTipoMoneda = cTipoMoneda;
     }
 
-    // Constructor vacío
-    public FondoEmergencia() {
-    }
-
+  
     // Getters
     public double getMontoInicial() { return montoInicial;}
     public double getMontoActual() {  return montoActual;}     
     public Date getFechaCreacion() {   return fechaCreacion; }
+    
      
 
     public String getDescripcion() {
@@ -48,6 +48,10 @@ public class FondoEmergencia {
 
     public int getProposito() {
         return proposito;
+    }
+
+    public int getTipoMoneda(){
+        return cTipoMoneda;
     }
 
     // Setters
@@ -77,5 +81,8 @@ public class FondoEmergencia {
 
     public void setProposito(int proposito) {
         this.proposito = proposito;
+    }
+    public void setTipoMoneda(int cTipoMoneda){
+        this.cTipoMoneda = cTipoMoneda;
     }
 }

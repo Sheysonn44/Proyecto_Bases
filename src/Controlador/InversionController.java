@@ -11,13 +11,31 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
-public class InversionController {
+/**
+ * Controlador para manejar las operaciones relacionadas con las inversiones.
+ * Este controlador utiliza InversionDAO para interactuar con la base de datos.
+ *
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ * 28-08-2025 InversionController.java
+ */
 
+public class InversionController {
+    /* Atributo para acceder a la capa de datos */
     private InversionDAO dao = new InversionDAO();
 
+
+    /**
+     * Método para ejecutar el escenario de prueba.
+     * Crea una inversión hipotecaria y registra los ingresos mensuales.
+     */
     public void escenario4() {
+
+
         try {
-            // Obtener conexión y DAOs
+            /* Obtener conexión y DAOs */
             Connection conn = Conexion.getConexion();
             conn.setAutoCommit(false);
 
@@ -26,49 +44,49 @@ public class InversionController {
             TransaccionDAO transaccionDAO = new TransaccionDAO();
             IngresoDAO ingresoDAO = new IngresoDAO();
 
-            // Crear inversión de prueba
+            /* Crear inversión de prueba */
             Inversion inversion = new Inversion();
-            inversion.setNombre("Inversión Hipotecaria Mayo");
-            inversion.setTipoInversion("Hipotecaria");
-            inversion.setMonto(new BigDecimal("10000.00"));
-            inversion.setRentabilidad(new BigDecimal("0.12")); // 12% anual
-            inversion.setFechaInicio(new java.sql.Date(LocalDate.now().toEpochDay() * 24 * 60 * 60 * 1000));
-            inversion.setDescripcion("Inversión de prueba");
-            inversion.setCuentaBancaria(6);
-            inversion.setEstado(1);
-            inversion.setTipoInversionId(2);
-            inversion.setTipoMoneda(1);
+            inversion.setNombre("Inversión Hipotecaria Mayo");                                              // Nombre de la inversión
+            inversion.setTipoInversion("Hipotecaria");                                               // Tipo de inversión
+            inversion.setMonto(new BigDecimal("10000.00"));                                                    // Monto de la inversión
+            inversion.setRentabilidad(new BigDecimal("0.12"));                                                 // Rentabilidad 12% anual
+            inversion.setFechaInicio(new java.sql.Date(LocalDate.now().toEpochDay() * 24 * 60 * 60 * 1000));       // Fecha de inicio (hoy)
+            inversion.setDescripcion("Inversión de prueba");                                           // Descripción de la inversión
+            inversion.setCuentaBancaria(6);                                                         // Cuenta bancaria asociada
+            inversion.setEstado(1);                                                                         // Estado
+            inversion.setTipoInversionId(2);                                                       // Tipo de inversión
+            inversion.setTipoMoneda(1);                                                                 // Tipo de moneda
 
-            int categoriaSalida = 3;
-            int categoriaIngreso = 5;
-            int tipoMovimiento = 1;
-            int tipoTransaccion = 2;
+            int categoriaSalida = 3;    // Categoría de salida (Inversiones)
+            int categoriaIngreso = 5;   // Categoría de ingreso (Intereses de inversiones)
+            int tipoMovimiento = 1;    // Tipo de movimiento (Salida)
+            int tipoTransaccion = 2;   // Tipo de transacción (Egreso)
 
-            // Validaciones
+            /* Validaciones */
             if (inversion.getFechaInicio().before(new Date())) {
-                throw new Exception("❌ La fecha de inicio no puede ser anterior a hoy.");
+                throw new Exception(" La fecha de inicio no puede ser anterior a hoy.");
             }
             if (inversion.getRentabilidad().compareTo(BigDecimal.ZERO) <= 0 ||
                     inversion.getRentabilidad().compareTo(BigDecimal.ONE) > 0) {
-                throw new Exception("❌ La rentabilidad debe estar entre 0 y 1.");
+                throw new Exception("La rentabilidad debe estar entre 0 y 1.");
             }
             if (inversion.getMonto().compareTo(BigDecimal.ZERO) <= 0) {
-                throw new Exception("❌ El monto debe ser mayor a cero.");
+                throw new Exception(" El monto debe ser mayor a cero.");
             }
 
-            // Verificar saldo
+            /* Verificar saldo */
             double saldo = ahorroDAO.obtenerSaldoCuenta(inversion.getCuentaBancaria());
             if (saldo < inversion.getMonto().doubleValue()) {
-                throw new Exception("❌ Fondos insuficientes en la cuenta.");
+                throw new Exception(" Fondos insuficientes en la cuenta.");
             }
 
-            // Insertar inversión y obtener ID
+            /* Insertar inversión y obtener ID */
             int idInversion = inversionDAO.insertarYObtenerID(inversion);
 
-            // Rebajar el ahorro
+            /* Rebajar el ahorro */
             ahorroDAO.rebajarAhorro(inversion.getCuentaBancaria(), inversion.getMonto());
 
-            // Insertar transacción de salida
+            /* Insertar transacción de salida */
             transaccionDAO.insertar(
                     inversion.getMonto(),
                     inversion.getFechaInicio(),
@@ -81,7 +99,7 @@ public class InversionController {
                     tipoTransaccion // este valor sería 2 para salida
             );
 
-            // Insertar ingresos mensuales
+            /* Insertar ingresos mensuales */
             BigDecimal interesMensual = inversion.getMonto()
                     .multiply(inversion.getRentabilidad())
                     .divide(new BigDecimal("12"), 5, RoundingMode.HALF_UP);
@@ -104,7 +122,7 @@ public class InversionController {
             }
 
             conn.commit();
-            System.out.println("✅ Escenario 4 completado: inversión hipotecaria registrada.");
+            System.out.println(" Escenario 4 completado: inversión hipotecaria registrada.");
 
         } catch (Exception e) {
             try {
@@ -112,7 +130,7 @@ public class InversionController {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            System.out.println("❌ Error en escenario 4: " + e.getMessage());
+            System.out.println(" Error en escenario 4: " + e.getMessage());
         }
     }
 

@@ -11,11 +11,23 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+/**
+ * Clase IngresoDAO es para gestionar las operaciones relacionadas con los ingresos.
+ * Incluye métodos para insertar, eliminar, editar y listar ingresos desde la base de datos.
+ */
 public class IngresoDAO {
 
+
+/**
+     * Inserta un nuevo ingreso en la base de datos utilizando el procedimiento almacenado  InsertarIngreso}.
+     *
+     * @param ingreso con los datos del ingreso a registrar.
+     * @throws Exception si ocurre un error durante la operación de base de datos.
+     */
     public void insertarIngreso(Ingreso ingreso) throws Exception {
         Connection conn = Conexion.getConexion();
-        String sql = "{call InsertarIngreso(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{call InsertarIngreso(?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}";
         CallableStatement cstmt = conn.prepareCall(sql);
 
         cstmt.setInt(1, ingreso.getcUsuario());
@@ -28,11 +40,18 @@ public class IngresoDAO {
         cstmt.setInt(8, ingreso.getMetodoPago());
         cstmt.setInt(9, ingreso.getCtipoMoneda());
         cstmt.setString(10, ingreso.getdDestinatario());
+        cstmt.setInt(11,ingreso.getCtipotran());
 
         cstmt.execute();
 
     }
 
+ /**
+     * Elimina un ingreso de la base de datos utilizando el procedimiento almacenado EliminarIngreso}.
+     *
+     * @param cIngreso Código del ingreso a eliminar.
+     * @throws Exception si ocurre un error al eliminar el ingreso.
+     */
     public void eliminarIngreso(int cIngreso) throws Exception {
 
         String sql = "{call EliminarIngreso(?)}";
@@ -49,6 +68,13 @@ public class IngresoDAO {
         }
     }
 
+  /**
+     * Edita los datos de un ingreso existente mediante el procedimiento almacenado.
+     *
+     * @param ingreso     los nuevos datos del ingreso.
+     * @param cIngreso    Código del ingreso que se va a editar.
+     * @throws Exception si ocurre un error durante la actualización.
+     */
     public void editarIngreso(Ingreso ingreso, int cIngreso) throws Exception {
 
         String sql = "{call EditarIngreso(?, ?, ?, ?, ?, ?, ?, ?)}";
@@ -73,6 +99,12 @@ public class IngresoDAO {
         }
     }
 
+     /**
+     * Muestra una lista de ingresos utilizando la vista VistaIngresos.
+     *
+     * @throws Exception si ocurre un error al obtener los datos.
+     */
+
     public void mostrarIngresos() throws Exception {
 
         String sql = "SELECT C_Ingreso, M_Ingreso, F_Ingreso, D_Descripcion, D_Simbolo, MetodoPagoDescripcion FROM VistaIngresos";
@@ -95,7 +127,20 @@ public class IngresoDAO {
         }
 
     }
-
+ /**
+     * Inserta un ingreso mensual de forma directa en la tabla Ingresos. (sin procedimiento almacenado).
+     *
+     * @param monto             Monto del ingreso.
+     * @param fecha             Fecha del ingreso.
+     * @param detalle           Descripción o detalle del ingreso.
+     * @param categoriaIngreso  ID de la categoría.
+     * @param cuentaBancaria    ID de la cuenta bancaria.
+     * @param idInversion       ID de inversión asociada (si aplica).
+     * @param tipoMoneda        ID del tipo de moneda.
+     * @param tipoMovimiento    Tipo de movimiento financiero.
+     * @param tipoTransaccion   Tipo de transacción.
+     * @throws Exception si ocurre un error al insertar.
+     */
     public void insertarIngresoMensual(BigDecimal monto, Date fecha, String detalle,
             int categoriaIngreso, int cuentaBancaria, int idInversion,
             int tipoMoneda, int tipoMovimiento, int tipoTransaccion) throws Exception {

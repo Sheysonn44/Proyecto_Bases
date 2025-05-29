@@ -7,33 +7,50 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Calendar;
 
+
+
+/**
+ * 
+ *
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ * 28-08-2025  GastoController.java
+ * Controlador para manejar las operaciones relacionadas con los gastos.
+ * Este controlador utiliza GastoDAO para interactuar con la base de datos.
+ */
+
+
 public class GastoController {
 
+
+    /* Atributo para acceder a la capa de datos */
     public void ejecutarEscenario() {
 
         // Primer gasto - Persona 1
         Gasto gasto1 = crearGasto(
-                50.0,
-                "Pago de Uber",
-                1, // categoría transporte
-                3, // cuenta bancaria
-                1, // método pago
-                1, // tipo moneda
-                "Uber Costa Rica",
-                2 // tipo transacción
+                50.0,                          // Monto    
+                "Pago de Uber",          // Descripción
+                1,                         // Categoría transporte
+                3,                    // Cuenta bancaria
+                1,                        // Método pago
+                1,                        // Tipo moneda
+                "Uber Costa Rica",      // Destinatario
+                2                    // Tipo transacción
 
         );
 
         // Segundo gasto - Persona 2
         Gasto gasto2 = crearGasto(
-                100.0,
-                "Compra en supermercado",
-                2, // categoría alimentación
-                4, // cuenta bancaria diferente
-                2, // tarjeta
-                1, // tipo moneda
-                "AutoMercado",
-                2 // tipo transacción
+                100.0,                               // Monto
+                "Compra en supermercado",      // Descripción
+                2,                               // Categoría alimentación
+                4,                          // Cuenta bancaria diferente
+                2,                              // Tarjeta
+                1,                              // Tipo moneda
+                "AutoMercado",                // Destinatario
+                2                          // Tipo transacción
 
         );
 
@@ -42,6 +59,7 @@ public class GastoController {
         GastoDAO.insertarGasto(gasto2);
     }
 
+    /* Método para crear un gasto */
     private Gasto crearGasto(
             double monto,
             String descripcion,
@@ -53,9 +71,11 @@ public class GastoController {
             int tipoTransaccion
          
     ) {
-        Date fechaAleatoria = generarFechaAleatoriaAbril();
-        
 
+        /* Generar fecha aleatoria en abril de 2025 */
+        Date fechaAleatoria = generarFechaAleatoriaAbril();
+
+        /* Crear el objeto Gasto */
         return new Gasto(
                 monto,
                 fechaAleatoria,
@@ -69,7 +89,12 @@ public class GastoController {
             
         );
     }
-
+ 
+    /**
+     * Genera una fecha aleatoria en abril de 2025.
+     *
+     * @return Fecha aleatoria en abril de 2025.
+     */
     private Date generarFechaAleatoriaAbril() {
         Calendar cal = Calendar.getInstance();
         Random rand = new Random();

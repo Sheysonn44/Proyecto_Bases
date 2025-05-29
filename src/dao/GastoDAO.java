@@ -6,7 +6,21 @@ import java.sql.Date;
 import db.Conexion;
 import Modelo.Gasto;
 
+
+/**
+ * Clase GatoDAO permite manejar las operaciones relacionadas con los gastos.
+ * Permite insertar registros de gasto en la base de datos utilizando procedimientos almacenados.
+ */
 public class GastoDAO {
+
+
+ /**
+     * Inserta un nuevo gasto en la base de datos utilizando el procedimiento almacenado
+     * InsertarGasto_Actualizacion. También actualiza las entidades relacionadas como
+     * cuentas, transacciones y saldos.
+     *
+     * @param gasto Objeto Modelo.Gasto que contiene los datos del gasto a insertar.
+     */
 
     public static void insertarGasto(Gasto gasto) {
         try {

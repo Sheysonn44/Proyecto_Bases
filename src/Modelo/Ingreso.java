@@ -17,11 +17,12 @@ public class Ingreso {
     private int categoria;
     private int metodoPago;
     private int cTipoMoneda;
+    private int ctipotran;
     private String dDestinatario;
 
     // Constructor
     public Ingreso(int cUsuario, int cCuentaBancaria, String nombreCompleto, double monto, Date fecha, 
-                   String descripcionIngreso, int categoria, int metodoPago, int cTipoMoneda, String dDestinatario) {
+                   String descripcionIngreso, int categoria, int metodoPago, int cTipoMoneda,String dDestinatario, int ctipotran) {
         this.cUsuario = cUsuario;
         this.cCuentaBancaria = cCuentaBancaria;
         this.nombreCompleto = nombreCompleto;
@@ -31,6 +32,7 @@ public class Ingreso {
         this.categoria = categoria;
         this.metodoPago = metodoPago;
         this.cTipoMoneda = cTipoMoneda;
+        this.ctipotran = ctipotran;
         this.dDestinatario = dDestinatario;
     }
     public Ingreso() {
@@ -47,6 +49,7 @@ public class Ingreso {
     public int getCategoria() { return categoria; }
     public int getMetodoPago() { return metodoPago; }
     public int getCtipoMoneda() { return cTipoMoneda; }
+     public int getCtipotran() { return ctipotran; }
     public String getdDestinatario() { return dDestinatario; }
 
        // Setters
@@ -59,6 +62,7 @@ public class Ingreso {
     public void setCategoria(int categoria) { this.categoria = categoria; }
     public void setMetodoPago(int metodoPago) { this.metodoPago = metodoPago; }
     public void setdSimbolo(int dSimbolo) { this.cTipoMoneda = cTipoMoneda; }
+    public void setctipotran(int ctipotran) { this.ctipotran = ctipotran; }
     public void setdDestinatario(String dDestinatario) { this.dDestinatario = dDestinatario; }
 
 }

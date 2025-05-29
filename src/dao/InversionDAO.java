@@ -7,47 +7,20 @@ import java.math.BigDecimal;
 import db.Conexion;
 import Modelo.*;
 
-/*
- * * Clase para manejar las inversiones hipotecarias.
- * * Contiene metodos crud para la tabla inversiones.
- * * Esta clase contiene un método para ejecutar un procedimiento almacenado
- * * que registra una inversión hipotecaria en la base de datos.
- * * El procedimiento almacenado se llama sp_RegistrarInversionHipotecaria
- * * y recibe varios parámetros relacionados con la inversión.
+/**
+ * Clase para manejar las operaciones CRUD de la tabla Inversiones.
+ * Proporciona métodos para insertar, actualizar, eliminar y listar inversiones hipotecarias,
+ * así como para ejecutar procedimientos almacenados relacionados.
  */
 public class InversionDAO {
-    // public void registrarInversion(Inversion i) throws Exception {
-    // Connection conn = Conexion.getConexion();
-
-    // CallableStatement cs = conn
-    // .prepareCall("{call sp_registrarInversionHipotecaria(?, ?, ?, ?, ?, ?, ?, ?,
-    // ?, ?, ?, ?, ?, ?)}");
-
-    // cs.setString(1, i.getNombre());
-    // cs.setString(2, i.getTipoInversion());
-    // cs.setBigDecimal(3, i.getMonto());
-    // cs.setBigDecimal(4, i.getRentabilidad());
-    // cs.setDate(5, i.getFechaInicio());
-    // cs.setString(6, i.getDescripcion());
-    // cs.setInt(7, i.getCuentaBancaria());
-    // cs.setInt(8, i.getEstado());
-    // cs.setInt(9, i.getTipoInversionId());
-    // cs.setInt(10, i.getCategoriaSalida());
-    // cs.setInt(11, i.getCategoriaIngreso());
-    // cs.setInt(12, i.getTipoMoneda());
-    // cs.setInt(13, i.getTipoMovimiento());
-    // cs.setInt(14, i.getTipoTransaccion());
-    // cs.execute();
-
-    // ResultSet rs = cs.getResultSet();
-    // if (rs != null && rs.next()) {
-    // System.out.println("📢 " + rs.getString("Mensaje"));
-    // rs.close();
-    // }
-
-    // cs.close();
-    // conn.close();
-    // }
+   /**
+     * Inserta una nueva inversión en la base de datos y retorna el ID generado.
+     * La fecha final se calcula automáticamente sumando 1 año a la fecha de inicio.
+     *
+     * @param inv Objeto Inversion con los datos a insertar.
+     * @return ID generado para la nueva inversión.
+     * @throws Exception si ocurre un error en la base de datos o no se genera el ID.
+     */
     public int insertarYObtenerID(Inversion inv) throws Exception {
         Connection conn = Conexion.getConexion();
         String sql = "INSERT INTO Inversiones (nombre, tipoInversion, monto, rentabilidad, fechaInicio, fechaFinal, descripcion, cuentaBancaria, estado, tipoInversionId, tipoMoneda) "
@@ -75,7 +48,12 @@ public class InversionDAO {
             }
         }
     }
-
+ /**
+     * Actualiza una inversión existente en la base de datos usando un procedimiento almacenado.
+     *
+     * @param inv Objeto Inversion con los datos actualizados.
+     * @throws Exception si ocurre un error en la base de datos.
+     */
     public void actualizar(Inversion inv) throws Exception {
         Connection conn = Conexion.getConexion();
 
@@ -99,7 +77,12 @@ public class InversionDAO {
             stmt.executeUpdate();
         }
     }
-
+  /**
+     * Elimina una inversión de la base de datos dado su ID.
+     *
+     * @param id ID de la inversión a eliminar.
+     * @throws Exception si ocurre un error en la base de datos.
+     */
     public void eliminar(int id) throws Exception {
         Connection conn = Conexion.getConexion();
         String sql = "{CALL SP_EliminarInversion(?)}";
@@ -108,7 +91,12 @@ public class InversionDAO {
             stmt.executeUpdate();
         }
     }
-
+ /**
+     * Lista todas las inversiones registradas en la base de datos.
+     *
+     * @return Lista de objetos Inversion con los datos recuperados.
+     * @throws Exception si ocurre un error en la base de datos.
+     */
     public List<Inversion> listar() throws Exception {
         Connection conn = Conexion.getConexion();
         List<Inversion> lista = new ArrayList<>();

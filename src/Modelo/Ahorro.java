@@ -15,11 +15,12 @@ public class Ahorro {
     private int cuentaBancaria;
     private int estado;
     private int metodoPago;
+    private int cTipoMoneda;
 
     // Constructor completo
     public Ahorro(String metaAhorro, Date fechaInicio, double montoDeposito, Date fechaDeposito,
                   double montoObjetivo, double montoActual, Date fechaFinal, String descripcion,
-                  int cuentaBancaria, int estado, int metodoPago) {
+                  int cuentaBancaria, int estado, int metodoPago, int cTipoMoneda) {
         this.metaAhorro = metaAhorro;
         this.fechaInicio = fechaInicio;
         this.montoDeposito = montoDeposito;
@@ -31,6 +32,7 @@ public class Ahorro {
         this.cuentaBancaria = cuentaBancaria;
         this.estado = estado;
         this.metodoPago = metodoPago;
+        this.cTipoMoneda = cTipoMoneda;
     }
 
     // Getters
@@ -45,6 +47,7 @@ public class Ahorro {
     public int getCuentaBancaria() { return cuentaBancaria; }
     public int getEstado() { return estado; }
     public int getMetodoPago() { return metodoPago; }
+    public int getTipoMoneda() { return cTipoMoneda; }
 
     // Setters
     public void setMetaAhorro(String metaAhorro) { this.metaAhorro = metaAhorro; }
@@ -58,4 +61,5 @@ public class Ahorro {
     public void setCuentaBancaria(int cuentaBancaria) { this.cuentaBancaria = cuentaBancaria; }
     public void setEstado(int estado) { this.estado = estado; }
     public void setMetodoPago(int metodoPago) { this.metodoPago = metodoPago; }
+    public void setTipoMoneda(int cTipoMoneda) { this.cTipoMoneda = cTipoMoneda; }
 }

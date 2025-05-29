@@ -5,12 +5,20 @@ import db.Conexion;
 
 import java.math.BigDecimal;
 import java.sql.*;
-
+/**
+ * Clase AhorroDao sirve para gestionar las operaciones relacionadas con los ahorros.
+ * Proporciona métodos para insertar, eliminar, editar, mostrar ahorros y manipular su saldo.
+ */
 public class AhorroDAO {
 
-    // Insertar un ahorro
+      /**
+     * Inserta un nuevo ahorro en la base de datos mediante un procedimiento almacenado.
+     *
+     * @param ahorro Objeto Ahorro que contiene la información a insertar.
+     * @throws Exception Si ocurre un error durante la conexión o ejecución.
+     */
     public void insertarAhorro(Ahorro ahorro) throws Exception {
-        String sql = "{call InsertarAhorro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{call InsertarAhorro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 
         try (Connection conn = Conexion.getConexion();
                 CallableStatement cstmt = conn.prepareCall(sql)) {
@@ -26,6 +34,7 @@ public class AhorroDAO {
             cstmt.setInt(9, ahorro.getCuentaBancaria());
             cstmt.setInt(10, ahorro.getEstado());
             cstmt.setInt(11, ahorro.getMetodoPago());
+            cstmt.setInt(12, ahorro.getTipoMoneda());
 
             cstmt.execute();
 
@@ -33,7 +42,12 @@ public class AhorroDAO {
         }
     }
 
-    // Eliminar un ahorro por su ID
+ /**
+     * Elimina un ahorro específico por su ID utilizando un procedimiento almacenado.
+     *
+     * @param cAhorro ID del ahorro a eliminar.
+     * @throws Exception Si ocurre un error durante la operación.
+     */
     public void eliminarAhorro(int cAhorro) throws Exception {
         String sql = "{call EliminarAhorro(?)}";
 
@@ -50,7 +64,13 @@ public class AhorroDAO {
         }
     }
 
-    // Editar un ahorro
+    /**
+     * Edita un ahorro existente mediante un procedimiento almacenado.
+     *
+     * @param ahorro Objeto Ahorro con los nuevos datos.
+     * @param cAhorro ID del ahorro que se desea actualizar.
+     * @throws Exception Si ocurre un error en la operación.
+     */
     public void editarAhorro(Ahorro ahorro, int cAhorro) throws Exception {
         String sql = "{call EditarAhorro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 
@@ -78,7 +98,11 @@ public class AhorroDAO {
         }
     }
 
-    // Mostrar ahorros
+     /**
+     * Muestra todos los ahorros registrados consultando una vista en la base de datos.
+     *
+     * @throws Exception Si ocurre un error al obtener los datos.
+     */
     public void mostrarAhorros() throws Exception {
         String sql = "SELECT C_Ahorro, D_Meta_Ahorro, F_Inicio, M_Monto_Deposito, F_Deposito, M_Objetivo, M_Actual, F_Final, D_Descripcion, C_Cuenta_Bancaria, C_Metodo_Pago FROM VistaAhorros";
 
@@ -106,7 +130,13 @@ public class AhorroDAO {
             }
         }
     }
-
+     /**
+     * Obtiene el saldo actual (M_Actual) del ahorro vinculado a una cuenta bancaria.
+     *
+     * @param cuentaBancaria ID de la cuenta bancaria asociada.
+     * @return Saldo actual del ahorro.
+     * @throws Exception Si la cuenta no existe o ocurre un error en la consulta.
+     */
     public double obtenerSaldoCuenta(int cuentaBancaria) throws Exception {
         String sql = "SELECT M_Actual FROM Ahorros WHERE C_Cuenta_Bancaria = ?";
         try (Connection conn = Conexion.getConexion();
@@ -120,7 +150,13 @@ public class AhorroDAO {
             }
         }
     }
-
+     /**
+     * Resta un monto especifico al saldo actual de una cuenta bancaria.
+     *
+     * @param cuentaBancaria ID de la cuenta bancaria a modificar.
+     * @param monto Monto a restar del ahorro.
+     * @throws Exception Si ocurre un error durante la actualizacion.
+     */
     public void rebajarAhorro(int cuentaBancaria, BigDecimal monto) throws Exception {
         String sql = "UPDATE Ahorros SET M_Actual = M_Actual - ? WHERE C_Cuenta_Bancaria = ?";
         try (Connection conn = Conexion.getConexion();
