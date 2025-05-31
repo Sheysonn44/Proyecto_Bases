@@ -36,13 +36,13 @@ public class InversionController {
     public void escenario4() throws Exception {
 
         Inversion inversion = new Inversion();
-        inversion.setNombre("Inversión prueaba"); // Nombre de la inversión
+        inversion.setNombre("Prueba final "); // Nombre de la inversión
         inversion.setTipoInversion("Hipotecaria"); // Tipo de inversión
         inversion.setMonto(new BigDecimal("10.00")); // Monto de la inversión
         inversion.setRentabilidad(new BigDecimal("0.12")); // Rentabilidad 12% anual
         inversion.setFechaInicio(new java.sql.Date(System.currentTimeMillis())); // Fecha de inicio (hoy)
         inversion.setDescripcion("Inversión"); // Descripción de la inversión
-        inversion.setCuentaBancaria(4); // Cuenta bancaria asociada
+        inversion.setCuentaBancaria(6); // Cuenta bancaria asociada
         inversion.setEstado(1); // Estado
         inversion.setTipoInversionId(1);
         inversion.setCategoriaIngreso(2);

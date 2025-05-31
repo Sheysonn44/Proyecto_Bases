@@ -127,7 +127,7 @@ public class InversionDAO {
                 inv.setCategoriaIngreso(rs.getInt("categoriaIngreso"));
                 inv.setTipoMoneda(rs.getInt("tipoMoneda"));
                 inv.setTipoTransaccion(rs.getInt("tipoTransaccion"));
-                
+
                 lista.add(inv);
             }
         }
@@ -156,8 +156,13 @@ public class InversionDAO {
             cs.setInt(13, inversion.getTipoTransaccion()); // @C_Tipo_Transaccion (Egreso)
 
             // 🚀 Ejecutar
-            cs.execute();
-            System.out.println("✅ Inversión hipotecaria registrada correctamente.");
+            // cs.execute();
+
+            // System.out.println("✅ Inversión hipotecaria registrada correctamente.");
+            ResultSet rs = cs.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString("Mensaje"));
+            }
             cs.close();
         } catch (Exception e) {
             System.out.println("❌ Error al registrar la inversión: " + e.getMessage());

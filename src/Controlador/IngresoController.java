@@ -34,7 +34,7 @@ public class IngresoController {
         Ingreso ingreso = new Ingreso(
                 1,                                      // Usuario
                 3,                               // CuentaBancaria
-                "federica lopez",                 // NombreCompleto
+                " lopez",                 // NombreCompleto
                 monto,                                           // Monto
                 Date.valueOf("2025-05-26"),                    // Fecha actual
                 "Pago freelance",             // DescripcionIngreso

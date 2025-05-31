@@ -29,7 +29,7 @@ public class DeudaController {
 
     try (Connection conn = Conexion.getConexion()) {
         Deuda deuda = new Deuda();
-        deuda.setMonto(new BigDecimal("40.00"));
+        deuda.setMonto(new BigDecimal("100.00"));
         deuda.setTasaMensual(new BigDecimal("0.02")); 
         deuda.setTasaAnual(new BigDecimal("0.24"));
         deuda.setFechaAdquirida(Date.valueOf("2025-02-15"));
@@ -38,7 +38,7 @@ public class DeudaController {
         deuda.setAcreedor("Banco XYZ");
         deuda.setDescripcion("Deuda educativa");
         deuda.setCategoriaId(2);
-        deuda.setCuentaBancariaId(5);
+        deuda.setCuentaBancariaId(6);
         deuda.setEstadoId(1);
         deuda.setTipoInteresId(2);
         deuda.setTipoDeudaId(2);
