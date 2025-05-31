@@ -2,6 +2,11 @@ package Modelo;
 
 import java.sql.Date;
 
+/**
+ * Clase FondoEmergencia representa un fondo de emergencia con sus atributos y métodos.
+ * Permite manejar la información relacionada con el fondo, incluyendo montos, fechas,
+ * descripción, cuenta bancaria, estado, propósito y tipo de moneda.
+ */
 public class FondoEmergencia {
 
     private double montoInicial;

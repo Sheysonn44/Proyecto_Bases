@@ -29,7 +29,7 @@ public class DeudaController {
 
     try (Connection conn = Conexion.getConexion()) {
         Deuda deuda = new Deuda();
-        deuda.setMonto(new BigDecimal("20000"));
+        deuda.setMonto(new BigDecimal("40.00"));
         deuda.setTasaMensual(new BigDecimal("0.02")); 
         deuda.setTasaAnual(new BigDecimal("0.24"));
         deuda.setFechaAdquirida(Date.valueOf("2025-02-15"));
@@ -38,7 +38,7 @@ public class DeudaController {
         deuda.setAcreedor("Banco XYZ");
         deuda.setDescripcion("Deuda educativa");
         deuda.setCategoriaId(2);
-        deuda.setCuentaBancariaId(4);
+        deuda.setCuentaBancariaId(5);
         deuda.setEstadoId(1);
         deuda.setTipoInteresId(2);
         deuda.setTipoDeudaId(2);
@@ -47,8 +47,8 @@ public class DeudaController {
 
         /* Crear la lista de pagos */
         List<Pago> pagos = new ArrayList<>();
-        pagos.add(new Pago(new BigDecimal("533.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
-        pagos.add(new Pago(new BigDecimal("533.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("10.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("10.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
 
         
         deuda.setPagos(pagos);

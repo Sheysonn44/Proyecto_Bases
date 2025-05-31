@@ -2,7 +2,11 @@ package Modelo;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
+/**
+ * Clase MovimientoInversion representa un movimiento de inversión con sus atributos y métodos.
+ * Permite manejar la información relacionada con el movimiento, incluyendo
+ * monto, fecha, identificación de la inversión, tipo de moneda y tipo de movimiento.
+ */
 public class MovimientoInversion {
     private int id;
     private BigDecimal monto;

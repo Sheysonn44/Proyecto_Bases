@@ -1,7 +1,14 @@
 package Modelo;
 
 import java.util.Date;
+    
 
+/**
+ * Clase Gasto representa un gasto con sus atributos y métodos.
+ * Permite manejar la información relacionada con el gasto, incluyendo
+ * monto, fecha, descripción, categoría, cuenta bancaria, método de pago,
+ * tipo de moneda, destinatario y tipo de transacción.
+ */
 public class Gasto {
     private double M_Gasto; 
     private Date F_Gasto; 

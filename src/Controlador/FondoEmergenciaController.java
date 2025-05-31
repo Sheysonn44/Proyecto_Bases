@@ -4,8 +4,6 @@ import Modelo.FondoEmergencia;
 import dao.FondoEmergenciaDAO;
 
 import java.sql.Date;
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
  * 
  * @author Jocelyn Abarca

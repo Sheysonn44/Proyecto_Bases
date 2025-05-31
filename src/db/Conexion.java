@@ -8,6 +8,15 @@ import java.io.FileInputStream;
  * * Clase para manejar la conexión a la base de datos SQL Server.
  */
 public class Conexion {
+
+    /**
+     * Establece una conexión a la base de datos utilizando las propiedades
+     * definidas en un archivo de configuración.
+     *
+     * @return Connection objeto de conexión a la base de datos.
+     * @throws Exception si ocurre un error al cargar las propiedades o al
+     *                   establecer la conexión.
+     */
     public static Connection getConexion() throws Exception {
         Properties props = new Properties();
         FileInputStream fis = new FileInputStream("config.properties");

@@ -6,6 +6,15 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+import java.util.Properties;
+
+/**
+ * Clase Ingreso representa un ingreso con sus atributos y métodos.
+ * Permite manejar la información relacionada con el ingreso, incluyendo
+ * monto, fecha, descripción, categoría, cuenta bancaria, método de pago,
+ * tipo de moneda, destinatario y tipo de transacción.
+ */
 public class Ingreso {
 
     private int cUsuario;
@@ -18,11 +27,11 @@ public class Ingreso {
     private int metodoPago;
     private int cTipoMoneda;
     private int ctipotran;
-    private String dDestinatario;
+    private String Destinatario;
 
     // Constructor
     public Ingreso(int cUsuario, int cCuentaBancaria, String nombreCompleto, double monto, Date fecha, 
-                   String descripcionIngreso, int categoria, int metodoPago, int cTipoMoneda,String dDestinatario, int ctipotran) {
+                   String descripcionIngreso, int categoria, int metodoPago, int cTipoMoneda,String Destinatario, int ctipotran) {
         this.cUsuario = cUsuario;
         this.cCuentaBancaria = cCuentaBancaria;
         this.nombreCompleto = nombreCompleto;
@@ -33,7 +42,7 @@ public class Ingreso {
         this.metodoPago = metodoPago;
         this.cTipoMoneda = cTipoMoneda;
         this.ctipotran = ctipotran;
-        this.dDestinatario = dDestinatario;
+        this.Destinatario = Destinatario;
     }
     public Ingreso() {
         // Default constructor
@@ -50,7 +59,7 @@ public class Ingreso {
     public int getMetodoPago() { return metodoPago; }
     public int getCtipoMoneda() { return cTipoMoneda; }
      public int getCtipotran() { return ctipotran; }
-    public String getdDestinatario() { return dDestinatario; }
+    public String getDestinatario() { return Destinatario; }
 
        // Setters
     public void setcUsuario(int cUsuario) { this.cUsuario = cUsuario; }
@@ -63,6 +72,6 @@ public class Ingreso {
     public void setMetodoPago(int metodoPago) { this.metodoPago = metodoPago; }
     public void setdSimbolo(int dSimbolo) { this.cTipoMoneda = cTipoMoneda; }
     public void setctipotran(int ctipotran) { this.ctipotran = ctipotran; }
-    public void setdDestinatario(String dDestinatario) { this.dDestinatario = dDestinatario; }
+    public void setDestinatario(String Destinatario) { this.Destinatario = Destinatario; }
 
 }

@@ -1,9 +1,13 @@
 package Modelo;
 
 import java.sql.Date;
-
+/**
+ * Clase Ahorro representa una meta de ahorro con sus atributos y métodos.
+ * Permite manejar la información relacionada con el ahorro, incluyendo
+ * la meta, fechas, montos y estado del ahorro.
+ */
 public class Ahorro {
-
+    // Atributos de la clase Ahorro
     private String metaAhorro;
     private Date fechaInicio;
     private double montoDeposito;

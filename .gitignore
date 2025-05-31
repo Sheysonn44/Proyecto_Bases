@@ -1,1 +1,20 @@
+
 config.properties
+# Ignore the configuration file
+lib/
+# Ignore the compiled classes directory
+classes/
+# Ignore the JAR file
+*.jar
+# Ignore the build directory
+build/
+# Ignore the log files
+*.log
+# Ignore the temporary files
+*.tmp
+# Ignore the IDE specific files
+.idea/
+# Ignore the Eclipse project files
+*.classpath
+*.project
+

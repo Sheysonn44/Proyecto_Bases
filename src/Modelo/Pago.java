@@ -3,6 +3,12 @@ package Modelo;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+/**
+ * Clase Pago representa un pago con sus atributos y métodos.
+ * Permite manejar la información relacionada con el pago, incluyendo
+ * monto, fecha, descripción, cuenta bancaria, método de pago, destinatario,
+ * categoría de pago, tipo de transacción y tipo de moneda.
+ */
 public class Pago {
     private BigDecimal monto;
     private Date fechaPago;

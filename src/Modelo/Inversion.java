@@ -2,7 +2,12 @@ package Modelo;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-
+/**
+ * Clase Inversion representa una inversión con sus atributos y métodos.
+ * Permite manejar la información relacionada con la inversión, incluyendo
+ * monto, rentabilidad, fechas, descripción, cuenta bancaria, estado,
+ * tipo de inversión, categorías de salida e ingreso, tipo de moneda y tipo de transacción.
+ */
 public class Inversion {
     private String nombre;
     private String tipoInversion;
@@ -16,14 +21,13 @@ public class Inversion {
     private int categoriaSalida;
     private int categoriaIngreso;
     private int tipoMoneda;
-    private int tipoMovimiento;
     private int tipoTransaccion;
 
     // Constructor completo
     public Inversion(String nombre, String tipoInversion, BigDecimal monto, BigDecimal rentabilidad,
                      Date fechaInicio, String descripcion, int cuentaBancaria, int estado,
                      int tipoInversionId, int categoriaSalida, int categoriaIngreso,
-                     int tipoMoneda, int tipoMovimiento, int tipoTransaccion) {
+                     int tipoMoneda, int tipoTransaccion) {
         this.nombre = nombre;
         this.tipoInversion = tipoInversion;
         this.monto = monto;
@@ -36,7 +40,6 @@ public class Inversion {
         this.categoriaSalida = categoriaSalida;
         this.categoriaIngreso = categoriaIngreso;
         this.tipoMoneda = tipoMoneda;
-        this.tipoMovimiento = tipoMovimiento;
         this.tipoTransaccion = tipoTransaccion;
     }
     public Inversion() {
@@ -55,7 +58,6 @@ public class Inversion {
     public int getCategoriaSalida() { return categoriaSalida; }
     public int getCategoriaIngreso() { return categoriaIngreso; }
     public int getTipoMoneda() { return tipoMoneda; }
-    public int getTipoMovimiento() { return tipoMovimiento; }
     public int getTipoTransaccion() { return tipoTransaccion; }
     // Setters
     public void setNombre(String nombre) { this.nombre = nombre; }
@@ -70,6 +72,5 @@ public class Inversion {
     public void setCategoriaSalida(int categoriaSalida) { this.categoriaSalida = categoriaSalida; }
     public void setCategoriaIngreso(int categoriaIngreso) { this.categoriaIngreso = categoriaIngreso; }
     public void setTipoMoneda(int tipoMoneda) { this.tipoMoneda = tipoMoneda; }
-    public void setTipoMovimiento(int tipoMovimiento) { this.tipoMovimiento = tipoMovimiento; }
     public void setTipoTransaccion(int tipoTransaccion) { this.tipoTransaccion = tipoTransaccion; }
 }

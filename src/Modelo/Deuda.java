@@ -3,6 +3,11 @@ package Modelo;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
+/**
+ * Clase Deuda representa una deuda con sus atributos y métodos.
+ * Permite manejar la información relacionada con la deuda, incluyendo
+ * el monto, tasas, fechas, acreedor, descripción y pagos asociados.
+ */
 public class Deuda {
       private BigDecimal monto;
     private BigDecimal tasaMensual;
@@ -22,7 +27,7 @@ public class Deuda {
      public BigDecimal getMonto() {
         return monto;
     }
-
+    
     public void setMonto(BigDecimal monto) {
         this.monto = monto;
     }

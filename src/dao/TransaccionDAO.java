@@ -24,27 +24,25 @@ public class TransaccionDAO {
      * @param categoria       ID de la categoría de la transacción.
      * @param cuentaBancaria  ID de la cuenta bancaria relacionada con la transacción.
      * @param tipoMoneda      ID del tipo de moneda de la transacción.
-     * @param tipoMovimiento  ID del tipo de movimiento (ejemplo: débito, crédito).
      * @param tipoTransaccion ID del tipo de transacción.
      * @throws Exception Si ocurre algún error al ejecutar la inserción en la base de datos.
      */
 
     public void insertar(BigDecimal monto, Date fecha, String descripcion, String detalle,
-                     int categoria, int cuentaBancaria, int tipoMoneda,
-                     int tipoMovimiento, int tipoTransaccion) throws Exception {
-    String sql = "INSERT INTO Transacciones (monto, fecha, descripcion, detalle, categoria, cuentaBancaria, tipoMoneda, tipoMovimiento, tipoTransaccion) " +
-                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     int categoria, int cuentaBancaria, int tipoTransaccion ,int tipoMoneda
+                     ) throws Exception {
+    // Preparar la consulta SQL para insertar una transacción
+        String sql = "{CALL SP_InsertarTransaccion(?, ?, ?, ?, ?, ?, ?, ?)}";
     try (Connection conn = Conexion.getConexion();
         PreparedStatement stmt = conn.prepareStatement(sql)) {
         stmt.setBigDecimal(1, monto);
-        stmt.setDate(2, new java.sql.Date(fecha.getTime()));
+        stmt.setTimestamp(2, new java.sql.Timestamp(fecha.getTime()));
         stmt.setString(3, descripcion);
         stmt.setString(4, detalle);
         stmt.setInt(5, categoria);
         stmt.setInt(6, cuentaBancaria);
-        stmt.setInt(7, tipoMoneda);
-        stmt.setInt(8, tipoMovimiento);
-        stmt.setInt(9, tipoTransaccion);
+        stmt.setInt(7, tipoTransaccion);
+        stmt.setInt(8, tipoMoneda);
         stmt.executeUpdate();
     }
 }
