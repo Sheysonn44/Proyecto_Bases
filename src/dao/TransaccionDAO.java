@@ -17,16 +17,16 @@ public class TransaccionDAO {
     /**
      * Inserta una nueva transacción en la base de datos.
      *
-     * @param monto           Monto de la transacción.
-     * @param fecha           Fecha en que se realizó la transacción.
-     * @param descripcion     Descripción breve de la transacción.
-     * @param detalle         Detalle o información adicional de la transacción.
-     * @param categoria       ID de la categoría de la transacción.
-     * @param cuentaBancaria  ID de la cuenta bancaria relacionada con la transacción.
-     * @param tipoMoneda      ID del tipo de moneda de la transacción.
-     * @param tipoMovimiento  ID del tipo de movimiento (ejemplo: débito, crédito).
-     * @param tipoTransaccion ID del tipo de transacción.
-     * @throws Exception Si ocurre algún error al ejecutar la inserción en la base de datos.
+     * @param monto          
+     * @param fecha          
+     * @param descripcion     
+     * @param detalle         
+     * @param categoria       
+     * @param cuentaBancaria  
+     * @param tipoMoneda      
+     * @param tipoMovimiento  
+     * @param tipoTransaccion 
+     * @throws Exception.
      */
 
     public void insertar(BigDecimal monto, Date fecha, String descripcion, String detalle,

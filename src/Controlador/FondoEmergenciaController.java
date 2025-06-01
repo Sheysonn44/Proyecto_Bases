@@ -34,7 +34,7 @@ public class FondoEmergenciaController {
                 7000,                         // Monto inicial
                 7000,                          // Monto actual (igual al inicial)
                 Date.valueOf("2025-01-01"),              // Fecha de creación
-                "Fondo para emergencias ",     // Descripción
+                "Fondo para hospital ",     // Descripción
                 3,                          // Cuenta bancaria
                 1,                                  // Estado (activo)
                 2,                             // Propósito (salud)

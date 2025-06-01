@@ -3,6 +3,11 @@ package Modelo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * Clase que representa un movimiento de inversión.
+ * Contiene información sobre el monto, fecha, tipo de moneda y tipo de
+ * movimiento.
+ */
 public class MovimientoInversion {
     private int id;
     private BigDecimal monto;
@@ -10,6 +15,17 @@ public class MovimientoInversion {
     private int inversionId;
     private int tipoMoneda;
     private int tipoMovimiento;
+
+    /**
+     * Constructor de la clase MovimientoInversion.
+     *
+     * @param id             Identificador del movimiento.
+     * @param monto          Monto del movimiento.
+     * @param fecha          Fecha del movimiento.
+     * @param inversionId    Identificador de la inversión asociada.
+     * @param tipoMoneda     Tipo de moneda del movimiento.
+     * @param tipoMovimiento Tipo de movimiento (ingreso o egreso).
+     */
 
     public MovimientoInversion(int id, BigDecimal monto, Date fecha, int inversionId, int tipoMoneda,
             int tipoMovimiento) {
@@ -20,9 +36,11 @@ public class MovimientoInversion {
         this.tipoMoneda = tipoMoneda;
         this.tipoMovimiento = tipoMovimiento;
     }
+
     public MovimientoInversion() {
         // Constructor por defecto
     }
+
     public int getId() {
         return id;
     }

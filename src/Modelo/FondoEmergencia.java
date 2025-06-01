@@ -2,6 +2,11 @@ package Modelo;
 
 import java.sql.Date;
 
+/**
+ * Clase que representa un fondo de emergencia.
+ * Contiene información sobre el monto inicial, monto actual, fecha de creación,
+ * descripción, cuenta bancaria asociada, estado, propósito y tipo de moneda.
+ */
 public class FondoEmergencia {
 
     private double montoInicial;
@@ -13,9 +18,20 @@ public class FondoEmergencia {
     private int proposito;
     private int cTipoMoneda;
 
-    // Constructor completo (sin ID, ya que se genera en BD)
+    /**
+     * Constructor de la clase FondoEmergencia.
+     *
+     * @param montoInicial   Monto inicial del fondo de emergencia.
+     * @param montoActual    Monto actual del fondo de emergencia.
+     * @param fechaCreacion  Fecha de creación del fondo de emergencia.
+     * @param descripcion    Descripción del fondo de emergencia.
+     * @param cuentaBancaria Cuenta bancaria asociada al fondo de emergencia.
+     * @param estado         Estado del fondo de emergencia.
+     * @param proposito      Propósito del fondo de emergencia.
+     * @param cTipoMoneda    Tipo de moneda del fondo de emergencia.
+     */
     public FondoEmergencia(double montoInicial, double montoActual, Date fechaCreacion,
-                           String descripcion, int cuentaBancaria, int estado, int proposito, int cTipoMoneda) {
+            String descripcion, int cuentaBancaria, int estado, int proposito, int cTipoMoneda) {
         this.montoInicial = montoInicial;
         this.montoActual = montoActual;
         this.fechaCreacion = fechaCreacion;
@@ -26,13 +42,18 @@ public class FondoEmergencia {
         this.cTipoMoneda = cTipoMoneda;
     }
 
-  
     // Getters
-    public double getMontoInicial() { return montoInicial;}
-    public double getMontoActual() {  return montoActual;}     
-    public Date getFechaCreacion() {   return fechaCreacion; }
-    
-     
+    public double getMontoInicial() {
+        return montoInicial;
+    }
+
+    public double getMontoActual() {
+        return montoActual;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -50,7 +71,7 @@ public class FondoEmergencia {
         return proposito;
     }
 
-    public int getTipoMoneda(){
+    public int getTipoMoneda() {
         return cTipoMoneda;
     }
 
@@ -82,7 +103,8 @@ public class FondoEmergencia {
     public void setProposito(int proposito) {
         this.proposito = proposito;
     }
-    public void setTipoMoneda(int cTipoMoneda){
+
+    public void setTipoMoneda(int cTipoMoneda) {
         this.cTipoMoneda = cTipoMoneda;
     }
 }

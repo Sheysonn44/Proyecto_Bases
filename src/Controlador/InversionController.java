@@ -23,116 +23,40 @@ import java.util.Date;
  */
 
 public class InversionController {
-    /* Atributo para acceder a la capa de datos */
+   /* Atributo para acceder a la capa de datos */
     private InversionDAO dao = new InversionDAO();
-
 
     /**
      * Método para ejecutar el escenario de prueba.
      * Crea una inversión hipotecaria y registra los ingresos mensuales.
+     * 
+     * @throws Exception
      */
-    public void escenario4() {
+    public void escenario4() throws Exception {
 
+        Inversion inversion = new Inversion();
+        inversion.setNombre("Prueba final "); // Nombre de la inversión
+        inversion.setTipoInversion("Hipotecaria"); // Tipo de inversión
+        inversion.setMonto(new BigDecimal("10.00")); // Monto de la inversión
+        inversion.setRentabilidad(new BigDecimal("0.12")); // Rentabilidad 12% anual
+        inversion.setFechaInicio(new java.sql.Date(System.currentTimeMillis())); // Fecha de inicio (hoy)
+        inversion.setDescripcion("Inversión"); // Descripción de la inversión
+        inversion.setCuentaBancaria(6); // Cuenta bancaria asociada
+        inversion.setEstado(1); // Estado
+        inversion.setTipoInversionId(1);
+        inversion.setCategoriaIngreso(2);
+        inversion.setCategoriaSalida(3); // Tipo de inversión
+        inversion.setTipoMoneda(1); // Tipo de moneda
+        inversion.setTipoTransaccion(2); // Tipo de transacción (Egreso)
 
         try {
-            /* Obtener conexión y DAOs */
-            Connection conn = Conexion.getConexion();
-            conn.setAutoCommit(false);
-
-            AhorroDAO ahorroDAO = new AhorroDAO();
-            InversionDAO inversionDAO = new InversionDAO();
-            TransaccionDAO transaccionDAO = new TransaccionDAO();
-            IngresoDAO ingresoDAO = new IngresoDAO();
-
-            /* Crear inversión de prueba */
-            Inversion inversion = new Inversion();
-            inversion.setNombre("Inversión Hipotecaria Mayo");                                              // Nombre de la inversión
-            inversion.setTipoInversion("Hipotecaria");                                               // Tipo de inversión
-            inversion.setMonto(new BigDecimal("10000.00"));                                                    // Monto de la inversión
-            inversion.setRentabilidad(new BigDecimal("0.12"));                                                 // Rentabilidad 12% anual
-            inversion.setFechaInicio(new java.sql.Date(LocalDate.now().toEpochDay() * 24 * 60 * 60 * 1000));       // Fecha de inicio (hoy)
-            inversion.setDescripcion("Inversión de prueba");                                           // Descripción de la inversión
-            inversion.setCuentaBancaria(6);                                                         // Cuenta bancaria asociada
-            inversion.setEstado(1);                                                                         // Estado
-            inversion.setTipoInversionId(2);                                                       // Tipo de inversión
-            inversion.setTipoMoneda(1);                                                                 // Tipo de moneda
-
-            int categoriaSalida = 3;    // Categoría de salida (Inversiones)
-            int categoriaIngreso = 5;   // Categoría de ingreso (Intereses de inversiones)
-            int tipoMovimiento = 1;    // Tipo de movimiento (Salida)
-            int tipoTransaccion = 2;   // Tipo de transacción (Egreso)
-
-            /* Validaciones */
-            if (inversion.getFechaInicio().before(new Date())) {
-                throw new Exception(" La fecha de inicio no puede ser anterior a hoy.");
-            }
-            if (inversion.getRentabilidad().compareTo(BigDecimal.ZERO) <= 0 ||
-                    inversion.getRentabilidad().compareTo(BigDecimal.ONE) > 0) {
-                throw new Exception("La rentabilidad debe estar entre 0 y 1.");
-            }
-            if (inversion.getMonto().compareTo(BigDecimal.ZERO) <= 0) {
-                throw new Exception(" El monto debe ser mayor a cero.");
-            }
-
-            /* Verificar saldo */
-            double saldo = ahorroDAO.obtenerSaldoCuenta(inversion.getCuentaBancaria());
-            if (saldo < inversion.getMonto().doubleValue()) {
-                throw new Exception(" Fondos insuficientes en la cuenta.");
-            }
-
-            /* Insertar inversión y obtener ID */
-            int idInversion = inversionDAO.insertarYObtenerID(inversion);
-
-            /* Rebajar el ahorro */
-            ahorroDAO.rebajarAhorro(inversion.getCuentaBancaria(), inversion.getMonto());
-
-            /* Insertar transacción de salida */
-            transaccionDAO.insertar(
-                    inversion.getMonto(),
-                    inversion.getFechaInicio(),
-                    "Salida por inversión hipotecaria",
-                    inversion.getNombre(),
-                    categoriaSalida,
-                    inversion.getCuentaBancaria(),
-                    inversion.getTipoMoneda(),
-                    tipoMovimiento,
-                    tipoTransaccion // este valor sería 2 para salida
-            );
-
-            /* Insertar ingresos mensuales */
-            BigDecimal interesMensual = inversion.getMonto()
-                    .multiply(inversion.getRentabilidad())
-                    .divide(new BigDecimal("12"), 5, RoundingMode.HALF_UP);
-
-            for (int i = 0; i < 12; i++) {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(inversion.getFechaInicio());
-                cal.add(Calendar.MONTH, i);
-
-                ingresoDAO.insertarIngresoMensual(
-                        interesMensual,
-                        new java.sql.Date(cal.getTimeInMillis()),
-                        inversion.getNombre(),
-                        categoriaIngreso,
-                        inversion.getCuentaBancaria(),
-                        idInversion,
-                        inversion.getTipoMoneda(),
-                        tipoMovimiento,
-                        tipoTransaccion);
-            }
-
-            conn.commit();
-            System.out.println(" Escenario 4 completado: inversión hipotecaria registrada.");
-
+            // Registrar la inversión hipotecaria
+            dao.registrarInversionHipotecaria(inversion);           
         } catch (Exception e) {
-            try {
-                Conexion.getConexion().rollback();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            System.out.println(" Error en escenario 4: " + e.getMessage());
-        }
-    }
+            System.out.println("Error al registrar la inversión: " + e.getMessage());
+            e.printStackTrace();
 
-    
+        }
+
+    }
 }

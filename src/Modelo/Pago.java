@@ -3,6 +3,13 @@ package Modelo;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+/**
+ * Clase que representa un pago en el sistema.
+ * Contiene información sobre el monto, fecha, descripción, cuenta, método de
+ * pago,
+ * destinatario, categoría
+ * de pago, tipo de transacción y tipo de moneda.
+ */
 public class Pago {
     private BigDecimal monto;
     private Date fechaPago;
@@ -14,9 +21,21 @@ public class Pago {
     private int tipoTransaccionId;
     private int tipoMonedaId;
 
-    // Constructor
-    public Pago(BigDecimal monto, Date fechaPago, String descripcion, int cuentaId,
-                int metodoPagoId, String destinatario, int categoriaPagoId, int tipoTransaccionId, int tipoMonedaId) {
+    /**
+     * Constructor de la clase Pago.
+     *
+     * @param monto             Monto del pago.
+     * @param fechaPago         Fecha del pago.
+     * @param descripcion       Descripción del pago.
+     * @param cuentaId          ID de la cuenta asociada al pago.
+     * @param metodoPagoId      ID del método de pago utilizado.
+     * @param destinatario      Destinatario del pago.
+     * @param categoriaPagoId   ID de la categoría del pago.
+     * @param tipoTransaccionId ID del tipo de transacción.
+     * @param tipoMonedaId      ID del tipo de moneda utilizada.
+     */
+    public Pago(BigDecimal monto, Date fechaPago, String descripcion, int cuentaId, int metodoPagoId,
+            String destinatario, int categoriaPagoId, int tipoTransaccionId, int tipoMonedaId) {
         this.monto = monto;
         this.fechaPago = fechaPago;
         this.descripcion = descripcion;
@@ -25,7 +44,7 @@ public class Pago {
         this.destinatario = destinatario;
         this.categoriaPagoId = categoriaPagoId;
         this.tipoTransaccionId = tipoTransaccionId;
-          this.tipoMonedaId = tipoMonedaId;
+        this.tipoMonedaId = tipoMonedaId;
     }
 
     // Getters
@@ -60,10 +79,12 @@ public class Pago {
     public int getTipoTransaccionId() {
         return tipoTransaccionId;
     }
-        public int getTipoMonedaId() {
+
+    public int getTipoMonedaId() {
         return tipoMonedaId;
     }
-     public void setMonto(BigDecimal monto) {
+
+    public void setMonto(BigDecimal monto) {
         this.monto = monto;
     }
 

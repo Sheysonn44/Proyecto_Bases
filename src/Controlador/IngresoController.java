@@ -41,7 +41,7 @@ public class IngresoController {
                 2,                                     // Categoria
                 1,                                    // MetodoPago
                 1,                                   // Moneda
-               " Cliente XYZ",                     // Destinatario
+               " BCR",                     // Destinatario
                 1                                      // Tipo transaccion      
         );
 

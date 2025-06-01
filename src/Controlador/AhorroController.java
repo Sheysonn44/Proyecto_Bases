@@ -27,14 +27,14 @@ public class AhorroController {
         /* Escenario de prueba para la clase Ahorro */
         
         Ahorro ahorro = new Ahorro(
-                "ahorro ",      // MetaAhorro
+                "Hospital ",      // MetaAhorro
                 Date.valueOf("2025-01-01"),           // FechaInicio
                 6000,                     // MontoDeposito
                 Date.valueOf("2025-01-15"),           // FechaDeposito
                 20000.00,                 // MontoObjetivo
                 6000,                       // MontoActual (igual al depósito inicial)
                 Date.valueOf("2025-12-31"),           // FechaFinal
-                "Ahorro para vacaciones",   // Descripcion
+                "Ahorro para hospital",   // Descripcion
                 3,                       //CuentaBancaria
                 1,                               //Estado (activo)
                 2,                                 // MetodoPago

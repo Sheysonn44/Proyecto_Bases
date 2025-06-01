@@ -1,1 +1,21 @@
+# Archivos compilados
+*.class
+
+# Carpetas de salida
+/bin/
+/out/
+/build/
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos ocultos de entorno o configuración
+*config.properties
 config.properties

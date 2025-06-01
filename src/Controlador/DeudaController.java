@@ -47,8 +47,8 @@ public class DeudaController {
 
         /* Crear la lista de pagos */
         List<Pago> pagos = new ArrayList<>();
-        pagos.add(new Pago(new BigDecimal("533.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
-        pagos.add(new Pago(new BigDecimal("533.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
 
         
         deuda.setPagos(pagos);

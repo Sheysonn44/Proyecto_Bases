@@ -1,16 +1,19 @@
 package vista;
+
 import java.util.Scanner;
 import Controlador.*;
 
-
-public class menu {    public static void main(String[] args) {
+public class menu {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        InversionController controller = new InversionController();
+        InversionController inversionController = new InversionController();
         GastoController gastoController = new GastoController();
-         DeudaController deudaController= new DeudaController();
+        DeudaController deudaController = new DeudaController();
         IngresoController ingresoController = new IngresoController();
         AhorroController ahorroController = new AhorroController();
-        FondoEmergenciaController fondoemerController =new FondoEmergenciaController();
+        FondoEmergenciaController fondoemerController = new FondoEmergenciaController();
+        PagoController pagoController = new PagoController();
+        CuentaBancariaController cuentaBancariaController = new CuentaBancariaController();
 
         System.out.println("Seleccione un escenario (1-5):");
         int opcion = scanner.nextInt();
@@ -23,23 +26,33 @@ public class menu {    public static void main(String[] args) {
 
                 gastoController.ejecutarEscenario();
                 break;
-             case 3:
+            case 3:
 
-               deudaController.registrarDeudaConPagos();
+                deudaController.registrarDeudaConPagos();
                 break;
             case 4:
-                 controller.escenario4();
-                 break;
+                try {
+                    inversionController.escenario4();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
             case 5:
                 ahorroController.ejecutarEscenario();
                 fondoemerController.ejecutarEscenario();
 
-                 
+                break;
+            case 6:
+
+                cuentaBancariaController.actualizarCuenta();
+                ;
+                break;
+
             default:
                 break;
         }
 
-         scanner.close();
+        scanner.close();
 
     }
 }

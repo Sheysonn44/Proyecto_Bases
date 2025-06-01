@@ -48,6 +48,83 @@ public class DeudaDAO {
         }
     }
 
- 
+ /**
+     * Actualiza una deuda existente.
+     * @param deuda Objeto con datos actualizados, debe incluir el id.
+     * @param conn Conexión activa.
+     * @throws SQLException 
+     */
+    public void actualizarDeuda(Deuda deuda, Connection conn) throws SQLException {
+        String sql = "{call ActualizarDeuda(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement stmt = conn.prepareCall(sql)) {
+            stmt.setInt(1, deuda.getId());
+            stmt.setBigDecimal(2, deuda.getMonto());
+            stmt.setBigDecimal(3, deuda.getTasaMensual());
+            stmt.setBigDecimal(4, deuda.getTasaAnual());
+            stmt.setDate(5, deuda.getFechaAdquirida());
+            stmt.setDate(6, deuda.getFechaVencimiento());
+            stmt.setInt(7, deuda.getPlazo());
+            stmt.setString(8, deuda.getAcreedor());
+            stmt.setString(9, deuda.getDescripcion());
+            stmt.setInt(10, deuda.getCategoriaId());
+            stmt.setInt(11, deuda.getCuentaBancariaId());
+            stmt.setInt(12, deuda.getEstadoId());
+            stmt.setInt(13, deuda.getTipoInteresId());
+            stmt.setInt(14, deuda.getTipoDeudaId());
+            stmt.setInt(15, deuda.getTipoTransaccion());
+            stmt.setInt(16, deuda.getTipoMoneda());
 
+            stmt.executeUpdate();
+        }
+    }
+
+    /**
+     * Elimina una deuda por su id.
+     * @param idDeuda id de la deuda a eliminar.
+     * @param conn Conexión activa.
+     * @throws SQLException 
+     */
+    public void eliminarDeuda(int idDeuda, Connection conn) throws SQLException {
+        String sql = "{call EliminarDeuda(?)}";
+        try (CallableStatement stmt = conn.prepareCall(sql)) {
+            stmt.setInt(1, idDeuda);
+            stmt.executeUpdate();
+        }
+    }
+
+    /**
+     * Lista todas las deudas (vista o select simple).
+     * @param conn Conexión activa.
+     * @return Lista de deudas.
+     * @throws SQLException 
+     */
+    public List<Deuda> listarDeudas(Connection conn) throws SQLException {
+        List<Deuda> lista = new ArrayList<>();
+        String sql = "SELECT * FROM Vista_Deudas"; 
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Deuda deuda = new Deuda();
+                deuda.setId(rs.getInt("IdDeuda"));
+                deuda.setMonto(rs.getBigDecimal("Monto"));
+                deuda.setTasaMensual(rs.getBigDecimal("TasaMensual"));
+                deuda.setTasaAnual(rs.getBigDecimal("TasaAnual"));
+                deuda.setFechaAdquirida(rs.getDate("FechaAdquirida"));
+                deuda.setFechaVencimiento(rs.getDate("FechaVencimiento"));
+                deuda.setPlazo(rs.getInt("Plazo"));
+                deuda.setAcreedor(rs.getString("Acreedor"));
+                deuda.setDescripcion(rs.getString("Descripcion"));
+                deuda.setCategoriaId(rs.getInt("CategoriaId"));
+                deuda.setCuentaBancariaId(rs.getInt("CuentaBancariaId"));
+                deuda.setEstadoId(rs.getInt("EstadoId"));
+                deuda.setTipoInteresId(rs.getInt("TipoInteresId"));
+                deuda.setTipoDeudaId(rs.getInt("TipoDeudaId"));
+                deuda.setTipoTransaccion(rs.getInt("TipoTransaccion"));
+                deuda.setTipoMoneda(rs.getInt("TipoMoneda"));
+                
+                lista.add(deuda);
+            }
+        }
+        return lista;
+    }
 }

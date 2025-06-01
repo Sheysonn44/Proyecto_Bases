@@ -3,8 +3,17 @@ package Modelo;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
+
+/**
+ * Clase que representa una deuda.
+ * Contiene información sobre el monto, tasas, fechas, acreedor, descripción,
+ * categoría, cuenta bancaria, estado, tipo de interés, tipo de deuda,
+ * tipo de transacción y tipo de moneda.
+ * Además, incluye una lista de pagos asociados a la deuda.
+ */
 public class Deuda {
-      private BigDecimal monto;
+    private int id; 
+    private BigDecimal monto;
     private BigDecimal tasaMensual;
     private BigDecimal tasaAnual;
     private Date fechaAdquirida;
@@ -19,7 +28,15 @@ public class Deuda {
     private int tipoDeudaId;
     private int tipoTransaccion;
     private int tipoMoneda;
-     public BigDecimal getMonto() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public BigDecimal getMonto() {
         return monto;
     }
 
@@ -138,9 +155,10 @@ public class Deuda {
     public void setTipoMoneda(int tipoMoneda) {
         this.tipoMoneda = tipoMoneda;
     }
-        private List<Pago> pagos;
 
-         public List<Pago> getPagos() {
+    private List<Pago> pagos;
+
+    public List<Pago> getPagos() {
         return pagos;
     }
 
@@ -149,5 +167,3 @@ public class Deuda {
     }
 
 }
-
-
