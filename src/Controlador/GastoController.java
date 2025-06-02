@@ -31,12 +31,12 @@ public class GastoController {
         // Primer gasto - Persona 1
         Gasto gasto1 = crearGasto(
                 50.0, // Monto
-                "Pago de Uber", // Descripción
+                "Pago de Luz", // Descripción
                 1, // Categoría transporte
                 3, // Cuenta bancaria
                 1, // Método pago
                 1, // Tipo moneda
-                "Uber Costa Rica", // Destinatario
+                "ICE", // Destinatario
                 2 // Tipo transacción
 
         );
@@ -44,12 +44,12 @@ public class GastoController {
         // Segundo gasto - Persona 2
         Gasto gasto2 = crearGasto(
                 100.0, // Monto
-                "Compra en supermercado", // Descripción
+                "Compra en Alimento para Perros", // Descripción
                 2, // Categoría alimentación
-                4, // Cuenta bancaria diferente
+                7, // Cuenta bancaria diferente
                 2, // Tarjeta
                 1, // Tipo moneda
-                "AutoMercado", // Destinatario
+                "PALI", // Destinatario
                 2 // Tipo transacción
 
         );

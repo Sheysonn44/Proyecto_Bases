@@ -34,10 +34,10 @@ public class IngresoController {
         Ingreso ingreso = new Ingreso(
                 1, // Usuario
                 3, // CuentaBancaria
-                "federica lopez", // NombreCompleto
+                "Adriana Chavarria", // NombreCompleto
                 monto, // Monto
                 Date.valueOf("2025-05-26"), // Fecha actual
-                "Pago freelance", // DescripcionIngreso
+                "Pago Clases", // DescripcionIngreso
                 2, // Categoria
                 1, // MetodoPago
                 1, // Moneda

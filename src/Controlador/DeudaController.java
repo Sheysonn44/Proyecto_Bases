@@ -35,8 +35,8 @@ public class DeudaController {
         deuda.setFechaAdquirida(Date.valueOf("2025-02-15"));
         deuda.setFechaVencimiento(Date.valueOf("2030-02-15"));
         deuda.setPlazo(60); 
-        deuda.setAcreedor("Banco XYZ");
-        deuda.setDescripcion("Deuda educativa");
+        deuda.setAcreedor("BAC Credomatic");
+        deuda.setDescripcion("Deuda hospitalaria");
         deuda.setCategoriaId(2);
         deuda.setCuentaBancariaId(4);
         deuda.setEstadoId(1);
@@ -47,8 +47,8 @@ public class DeudaController {
 
         /* Crear la lista de pagos */
         List<Pago> pagos = new ArrayList<>();
-        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
-        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "Banco XYZ",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-03-15"), "Pago marzo", deuda.getCuentaBancariaId(), 1, "BAC Credomatic",5, 4, deuda.getTipoMoneda()));
+        pagos.add(new Pago(new BigDecimal("20.33"), Date.valueOf("2025-04-15"), "Pago abril", deuda.getCuentaBancariaId(), 1, "BAC Credomatic",5, 4, deuda.getTipoMoneda()));
 
         
         deuda.setPagos(pagos);
