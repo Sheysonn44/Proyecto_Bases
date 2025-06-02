@@ -11,14 +11,15 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Adrian Chavarria
  * @author Marcos Montero
  * @author Jeison Alvarez
- * 28-08-2025 IngresoController.java
- * Controlador para manejar las operaciones relacionadas con los ingresos.
- * Este controlador utiliza IngresoDAO para interactuar con la base de datos.
+ *         28-06-2025 IngresoController.java
+ *         Controlador para manejar las operaciones relacionadas con los
+ *         ingresos.
+ *         Este controlador utiliza IngresoDAO para interactuar con la base de
+ *         datos.
  */
 public class IngresoController {
     /* Atributo para acceder a la capa de datos */
     private IngresoDAO dao = new IngresoDAO();
-
 
     /**
      * Método para ejecutar el escenario de prueba.
@@ -30,22 +31,21 @@ public class IngresoController {
         monto = Math.round(monto * 100.0) / 100.0;
         /* Crear un objeto Ingreso con datos de ejemplo */
 
-
         Ingreso ingreso = new Ingreso(
-                1,                                      // Usuario
-                3,                               // CuentaBancaria
-                "federica lopez",                 // NombreCompleto
-                monto,                                           // Monto
-                Date.valueOf("2025-05-26"),                    // Fecha actual
-                "Pago freelance",             // DescripcionIngreso
-                2,                                     // Categoria
-                1,                                    // MetodoPago
-                1,                                   // Moneda
-               " BCR",                     // Destinatario
-                1                                      // Tipo transaccion      
+                1, // Usuario
+                3, // CuentaBancaria
+                "federica lopez", // NombreCompleto
+                monto, // Monto
+                Date.valueOf("2025-05-26"), // Fecha actual
+                "Pago freelance", // DescripcionIngreso
+                2, // Categoria
+                1, // MetodoPago
+                1, // Moneda
+                " BCR", // Destinatario
+                1 // Tipo transaccion
         );
 
-        /* Escenario de prueba para la clase Ingreso */ 
+        /* Escenario de prueba para la clase Ingreso */
 
         try {
             dao.insertarIngreso(ingreso);

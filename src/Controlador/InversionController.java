@@ -19,11 +19,11 @@ import java.util.Date;
  * @author Adrian Chavarria
  * @author Marcos Montero
  * @author Jeison Alvarez
- * 28-08-2025 InversionController.java
+ *         28-06-2025 InversionController.java
  */
 
 public class InversionController {
-   /* Atributo para acceder a la capa de datos */
+    /* Atributo para acceder a la capa de datos */
     private InversionDAO dao = new InversionDAO();
 
     /**
@@ -51,7 +51,7 @@ public class InversionController {
 
         try {
             // Registrar la inversión hipotecaria
-            dao.registrarInversionHipotecaria(inversion);           
+            dao.registrarInversionHipotecaria(inversion);
         } catch (Exception e) {
             System.out.println("Error al registrar la inversión: " + e.getMessage());
             e.printStackTrace();

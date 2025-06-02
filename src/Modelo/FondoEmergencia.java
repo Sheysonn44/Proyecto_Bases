@@ -6,6 +6,13 @@ import java.sql.Date;
  * Clase que representa un fondo de emergencia.
  * Contiene información sobre el monto inicial, monto actual, fecha de creación,
  * descripción, cuenta bancaria asociada, estado, propósito y tipo de moneda.
+ * 
+ * 1-06-2025 Clase FondoEmergencia.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class FondoEmergencia {
 

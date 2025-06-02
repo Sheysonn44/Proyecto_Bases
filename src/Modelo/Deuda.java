@@ -10,9 +10,17 @@ import java.util.List;
  * categoría, cuenta bancaria, estado, tipo de interés, tipo de deuda,
  * tipo de transacción y tipo de moneda.
  * Además, incluye una lista de pagos asociados a la deuda.
+ * 
+ * 1-06-2025 Clase Deuda.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
+
 public class Deuda {
-    private int id; 
+    private int id;
     private BigDecimal monto;
     private BigDecimal tasaMensual;
     private BigDecimal tasaAnual;
@@ -36,6 +44,7 @@ public class Deuda {
     public void setId(int id) {
         this.id = id;
     }
+
     public BigDecimal getMonto() {
         return monto;
     }

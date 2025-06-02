@@ -5,8 +5,16 @@ import java.util.*;
 import Modelo.TiposEstado;
 
 /**
- * Clase TipoEstadoDAO para gestionar las operaciones CRUD sobre los tipos de estado
+ * Clase TipoEstadoDAO para gestionar las operaciones CRUD sobre los tipos de
+ * estado
  * en la base de datos.
+ * 
+ * 1-06-2025 Clase TipoEstadoDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class TipoEstadoDAO {
     private Connection conexion;
@@ -14,7 +22,8 @@ public class TipoEstadoDAO {
     /**
      * Constructor que recibe una conexión a la base de datos.
      *
-     * @param conexion Objeto Connection utilizado para conectarse a la base de datos.
+     * @param conexion Objeto Connection utilizado para conectarse a la base de
+     *                 datos.
      */
     public TipoEstadoDAO(Connection conexion) {
         this.conexion = conexion;
@@ -23,7 +32,8 @@ public class TipoEstadoDAO {
     /**
      * Inserta un nuevo tipo de estado en la base de datos.
      *
-     * @param estado Objeto TiposEstado que contiene la descripción del estado a insertar.
+     * @param estado Objeto TiposEstado que contiene la descripción del estado a
+     *               insertar.
      * @throws SQLException Si ocurre un error durante la ejecución de la consulta.
      */
     public void insertar(TiposEstado estado) throws SQLException {
@@ -37,7 +47,8 @@ public class TipoEstadoDAO {
     /**
      * Actualiza la descripción de un tipo de estado existente.
      *
-     * @param estado Objeto TiposEstado con el código y la nueva descripción del estado.
+     * @param estado Objeto TiposEstado con el código y la nueva descripción del
+     *               estado.
      * @throws SQLException Si ocurre un error durante la ejecución de la consulta.
      */
     public void actualizar(TiposEstado estado) throws SQLException {
@@ -73,12 +84,11 @@ public class TipoEstadoDAO {
         List<TiposEstado> lista = new ArrayList<>();
         String sql = "SELECT * FROM Tipos_Estado";
         try (Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+                ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 TiposEstado estado = new TiposEstado(
-                    rs.getInt("C_Estado"),
-                    rs.getString("D_Estado")
-                );
+                        rs.getInt("C_Estado"),
+                        rs.getString("D_Estado"));
                 lista.add(estado);
             }
         }

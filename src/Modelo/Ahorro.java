@@ -4,6 +4,12 @@ import java.sql.Date;
 
 /**
  * Clase que representa un ahorro con sus atributos y métodos.
+ * 1-06-2025 Clase Ahorro.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 
 public class Ahorro {

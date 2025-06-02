@@ -12,6 +12,12 @@ import java.util.List;
  * los tipos de proyeccion.
  * Proporciona métodos para insertar, eliminar, editar y mostrar tipos de
  * proyección.
+ * 1-06-2025 Clase TipoProyeccionDAO*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 
 public class TipoProyeccionDAO {
@@ -32,7 +38,6 @@ public class TipoProyeccionDAO {
         }
     }
 
-    
     /**
      * Edita un tipo de proyección existente.
      *
@@ -51,7 +56,6 @@ public class TipoProyeccionDAO {
         }
     }
 
-   
     /**
      * Elimina un tipo de proyección por su ID.
      *
@@ -67,8 +71,6 @@ public class TipoProyeccionDAO {
             System.out.println("Tipo de proyección eliminado correctamente.");
         }
     }
-
-   
 
     /**
      * Recupera una lista de todos los tipos de proyección.

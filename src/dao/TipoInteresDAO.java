@@ -9,6 +9,13 @@ import java.util.List;
 
 /**
  * Clase DAO para manejar las operaciones CRUD de TipoInteres.
+ * 
+ * 1-06-2025 Clase TipoInteresDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class TipoInteresDAO {
     // insertar

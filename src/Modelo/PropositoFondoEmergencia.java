@@ -3,6 +3,13 @@ package Modelo;
 /**
  * Clase que representa un propósito de fondo de emergencia.
  * Contiene un código y una descripción del propósito.
+ * 
+ * 1-06-2025 Clase PropositoFondoEmergencia.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class PropositoFondoEmergencia {
     private int cProposito;

@@ -15,7 +15,7 @@ import java.util.List;
  * @author Adrian Chavarria
  * @author Marcos Montero
  * @author Jeison Alvarez
- * 28-08-2025  DeudaController.java
+ * 28-06-2025  DeudaController.java
  * Controlador para manejar las operaciones relacionadas con las deudas.
  * Este controlador utiliza DeudaDAO para interactuar con la base de datos.
  */

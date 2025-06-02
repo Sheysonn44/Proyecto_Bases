@@ -11,6 +11,13 @@ import java.util.List;
  * Clase DAO para manejar las operaciones de TipoMetodoPago en la base de datos.
  * Contiene métodos para insertar, editar, eliminar y listar tipos de métodos de
  * pago.
+ * 
+ * 1-06-2025 Clase TipoMetodoPagoDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class TipoMetodoPagoDAO {
 

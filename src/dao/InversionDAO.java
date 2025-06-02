@@ -12,6 +12,13 @@ import Modelo.*;
  * Proporciona métodos para insertar, actualizar, eliminar y listar inversiones
  * hipotecarias,
  * así como para ejecutar procedimientos almacenados relacionados.
+ * 1-06-2025 Clase InversionDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ * 
  */
 public class InversionDAO {
     /**
@@ -132,6 +139,13 @@ public class InversionDAO {
         }
         return lista;
     }
+
+    /**
+     * Registra una inversión hipotecaria usando un procedimiento almacenado.
+     *
+     * @param inversion Objeto Inversion con los datos a registrar.
+     * @throws Exception si ocurre un error en la base de datos.
+     */
     public void registrarInversionHipotecaria(Inversion inversion) throws Exception {
         Connection conn = Conexion.getConexion();
         try {

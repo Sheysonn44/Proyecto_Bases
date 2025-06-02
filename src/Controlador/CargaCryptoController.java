@@ -14,19 +14,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * *@author Jocelyn Abarca
- * 
+ * @author Jocelyn Abarca
  * @author Adrian Chavarria
  * @author Marcos Montero
  * @author Jeison Alvarez
- *         28-08-2025 Clase AhorroController.java
- *         CargaCryptoController es una clase que se encarga de cargar datos de
- *         criptomonedas
- *         desde una API externa y guardarlos en una base de datos.
+ *         28-06-2025 Clase CargaCryptoController.java
  * 
- *         Utiliza la clase CargarDatosCryptoDAO para interactuar con la base de
- *         datos y
- *         obtener la última fecha registrada para evitar duplicados.
+ *         Clase encargada de cargar los datos de criptomonedas desde una API
+ *         externa
+ *         y guardarlos en la base de datos.
+ * 
+ * 
+ * 
  */
 
 public class CargaCryptoController {

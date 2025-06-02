@@ -1,5 +1,15 @@
 package Modelo;
 
+/**
+ * Clase Rol que representa un rol en el sistema.
+ * Contiene un código de rol y una descripción del rol.
+ * 1-06-2025 Clase Usuario.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ */
 public class Usuario {
     private int cUsuario;
     private String dNombre;
@@ -12,10 +22,11 @@ public class Usuario {
     private int cCanton;
     private int cDistrito;
 
-    public Usuario() {}
+    public Usuario() {
+    }
 
     public Usuario(int cUsuario, String dNombre, String dApellido1, String dApellido2, String dCorreo,
-                   String dContrasena, int cRol, int cProvincia, int cCanton, int cDistrito) {
+            String dContrasena, int cRol, int cProvincia, int cCanton, int cDistrito) {
         this.cUsuario = cUsuario;
         this.dNombre = dNombre;
         this.dApellido1 = dApellido1;
@@ -107,6 +118,5 @@ public class Usuario {
     public void setcDistrito(int cDistrito) {
         this.cDistrito = cDistrito;
     }
-
 
 }

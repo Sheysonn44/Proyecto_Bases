@@ -4,6 +4,20 @@ package Controlador;
 import dao.TipoMetodoPagoDAO;
 import Modelo.TipoMetodoPago;
 
+/**
+ * 
+ * 
+ * Controlador para manejar las operaciones relacionadas con los tipos
+ * de métodos de pago.
+ * 
+ * 1-06-2025 Clase TipoMetodoPagoController.java*
+ * 
+ * @author Jocelyn Abarca*
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ * 
+ */
 class TipoMetodoPagoController {
     public void TipoMetodoPago() {
 

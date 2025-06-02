@@ -7,6 +7,13 @@ import java.util.Date;
  * Clase que representa un movimiento de inversión.
  * Contiene información sobre el monto, fecha, tipo de moneda y tipo de
  * movimiento.
+ * 
+ * 1-06-2025 Clase MovimientoInversion.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class MovimientoInversion {
     private int id;

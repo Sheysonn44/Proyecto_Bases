@@ -13,6 +13,13 @@ import java.util.List;
  * Esta clase maneja las operaciones de base de datos relacionadas con las
  * proyecciones.
  * Permite insertar, editar, eliminar y consultar proyecciones.
+ * 
+ * 1-06-2025 Clase ProyeccionDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class ProyeccionDAO {
 
@@ -94,7 +101,7 @@ public class ProyeccionDAO {
      */
     public List<Proyeccion> verProyecciones() throws Exception {
         List<Proyeccion> lista = new ArrayList<>();
-        String sql = "SELECT * FROM VistaProyecciones"; 
+        String sql = "SELECT * FROM VistaProyecciones";
         try (Connection conn = Conexion.getConexion();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery()) {

@@ -7,6 +7,13 @@ import java.util.Date;
  * Contiene información sobre el monto, fecha, descripción, categoría, cuenta
  * bancaria,
  * método de pago, tipo de moneda, destinatario y tipo de transacción.
+ * 
+ * 1-06-2025 Clase Gasto.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class Gasto {
     private double M_Gasto;

@@ -7,6 +7,13 @@ import java.util.*;
 /**
  * Clase responsable del manejo de datos relacionados con deudas.
  * Permite insertar una deuda con sus pagos asociados utilizando procedimientos almacenados.
+ * 
+ * 1-06-2025 Clase DeudaDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class DeudaDAO {
    

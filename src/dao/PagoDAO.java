@@ -12,6 +12,13 @@ import java.math.BigDecimal;
  * Clase para manejar operaciones relacionadas con pagos en la base de datos.
  * Proporciona métodos para insertar pagos individuales y registrar múltiples
  * pagos asociados a una deuda.
+ * 
+ * 1-06-2025 Clase PagoDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class PagoDAO {
 
@@ -92,7 +99,7 @@ public class PagoDAO {
 
     public List<Pago> obtenerPagos(Connection conn) throws SQLException {
         List<Pago> lista = new ArrayList<>();
-        String sql = "{call sp_Mostrar_Pagos()}"; 
+        String sql = "{call sp_Mostrar_Pagos()}";
         try (CallableStatement stmt = conn.prepareCall(sql);
                 ResultSet rs = stmt.executeQuery()) {
 
@@ -148,14 +155,14 @@ public class PagoDAO {
             stmt.setInt(1, idPago);
             stmt.setBigDecimal(2, pago.getMonto());
             stmt.setDate(3, pago.getFechaPago());
-            stmt.setBigDecimal(4, BigDecimal.ZERO); 
+            stmt.setBigDecimal(4, BigDecimal.ZERO);
             stmt.setString(5, pago.getDescripcion());
             stmt.setInt(6, pago.getCuentaId());
             stmt.setInt(7, pago.getMetodoPagoId());
             stmt.setInt(8, pago.getTipoMonedaId());
             stmt.setString(9, pago.getDestinatario());
             stmt.setInt(10, pago.getCategoriaPagoId());
-            stmt.setInt(11, 0); 
+            stmt.setInt(11, 0);
             stmt.setInt(12, pago.getTipoTransaccionId());
 
             stmt.executeUpdate();

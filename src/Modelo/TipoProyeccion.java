@@ -3,6 +3,12 @@ package Modelo;
 /**
  * Clase que representa un tipo de interés.
  * Contiene un código y una descripción del tipo de interés.
+ * 1-06-2025 Clase TipoProyeccion.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class TipoProyeccion {
     private int cTipoProyeccion;

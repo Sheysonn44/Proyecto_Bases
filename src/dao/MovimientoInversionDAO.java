@@ -1,18 +1,29 @@
 package dao;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import Modelo.MovimientoInversion;
+
 /**
- * Clase para manejar las operaciones CRUD de MovimientoInversion en la base de datos.
- * Proporciona métodos para insertar, actualizar, eliminar y listar movimientos de inversión.
+ * Clase para manejar las operaciones CRUD de MovimientoInversion en la base de
+ * datos.
+ * Proporciona métodos para insertar, actualizar, eliminar y listar movimientos
+ * de inversión.
+ * 1-06-2025 Clase MovimientoInversionDAO*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 
 public class MovimientoInversionDAO {
     private final Connection conn;
- /**
+
+    /**
      * Constructor que recibe una conexión a la base de datos.
      * 
      * @param conn conexión activa a la base de datos.
@@ -21,11 +32,13 @@ public class MovimientoInversionDAO {
         this.conn = conn;
     }
 
-     /**
-     * Inserta un nuevo movimiento de inversión en la base de datos usando un procedimiento almacenado.
+    /**
+     * Inserta un nuevo movimiento de inversión en la base de datos usando un
+     * procedimiento almacenado.
      * 
      * @param mov objeto MovimientoInversion con los datos a insertar.
-     * @throws SQLException si ocurre un error durante la operación en la base de datos.
+     * @throws SQLException si ocurre un error durante la operación en la base de
+     *                      datos.
      */
     public void insertar(MovimientoInversion mov) throws SQLException {
         String sql = "{CALL SP_InsertarMovimientoInversion(?,?,?,?,?)}";
@@ -39,11 +52,13 @@ public class MovimientoInversionDAO {
         }
     }
 
-     /**
-     * Actualiza un movimiento de inversión existente en la base de datos usando un procedimiento almacenado.
+    /**
+     * Actualiza un movimiento de inversión existente en la base de datos usando un
+     * procedimiento almacenado.
      * 
      * @param mov objeto MovimientoInversion con los datos actualizados.
-     * @throws SQLException si ocurre un error durante la operación en la base de datos.
+     * @throws SQLException si ocurre un error durante la operación en la base de
+     *                      datos.
      */
     public void actualizar(MovimientoInversion mov) throws SQLException {
         String sql = "{CALL SP_ActualizarMovimientoInversion(?,?,?,?,?,?)}";
@@ -58,11 +73,13 @@ public class MovimientoInversionDAO {
         }
     }
 
-     /**
-     * Elimina un movimiento de inversión de la base de datos dado su ID usando un procedimiento almacenado.
+    /**
+     * Elimina un movimiento de inversión de la base de datos dado su ID usando un
+     * procedimiento almacenado.
      * 
      * @param id ID del movimiento de inversión a eliminar.
-     * @throws SQLException si ocurre un error durante la operación en la base de datos.
+     * @throws SQLException si ocurre un error durante la operación en la base de
+     *                      datos.
      */
     public void eliminar(int id) throws SQLException {
         String sql = "{CALL SP_EliminarMovimientoInversion(?)}";
@@ -73,7 +90,8 @@ public class MovimientoInversionDAO {
     }
 
     /**
-     * Recupera una lista con todos los movimientos de inversión almacenados en la base de datos.
+     * Recupera una lista con todos los movimientos de inversión almacenados en la
+     * base de datos.
      * 
      * @return Lista de objetos MovimientoInversion.
      * @throws SQLException si ocurre un error durante la consulta.
@@ -82,7 +100,7 @@ public class MovimientoInversionDAO {
         List<MovimientoInversion> lista = new ArrayList<>();
         String sql = "SELECT * FROM FN_ListarMovimientosInversion()";
         try (PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+                ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 MovimientoInversion mov = new MovimientoInversion();
                 mov.setId(rs.getInt("C_Movimiento_Inversion"));

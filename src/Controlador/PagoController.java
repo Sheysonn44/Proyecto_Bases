@@ -9,8 +9,24 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Controlador para manejar las operaciones relacionadas con los pagos.
+ * Este controlador utiliza PagoDAO para interactuar con la base de datos.
+ * 
+ * Incluye métodos para mostrar, actualizar y eliminar pagos.
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ *         01-06-2025 PagoController.java
+ */
 public class PagoController {
 
+    /**
+     * Muestra todos los pagos registrados en la base de datos.
+     * Imprime la lista de pagos con sus detalles por consola.
+     */
     public void mostrarPagos() {
         try (Connection conn = Conexion.getConexion()) {
             PagoDAO dao = new PagoDAO();
@@ -29,6 +45,10 @@ public class PagoController {
         }
     }
 
+    /**
+     * Actualiza la información de un pago específico.
+     * Usa un objeto Pago con nuevos datos y lo actualiza en la base de datos.
+     */
     public void actualizarPago() {
         try (Connection conn = Conexion.getConexion()) {
             PagoDAO dao = new PagoDAO();
@@ -46,6 +66,10 @@ public class PagoController {
         }
     }
 
+    /**
+     * Elimina un pago específico de la base de datos.
+     * El ID del pago a eliminar está definido dentro del método.
+     */
     public void eliminarPago() {
         try (Connection conn = Conexion.getConexion()) {
             PagoDAO dao = new PagoDAO();
@@ -58,4 +82,3 @@ public class PagoController {
         }
     }
 }
-

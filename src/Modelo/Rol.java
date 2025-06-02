@@ -1,10 +1,22 @@
 package Modelo;
 
+/**
+ * Clase Rol que representa un rol en el sistema.
+ * Contiene un código de rol y una descripción del rol.
+ * 
+ * 1-06-2025 Clase Rol.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ */
 public class Rol {
     private int cRol;
     private String dRol;
 
-    public Rol() {}
+    public Rol() {
+    }
 
     public Rol(int cRol, String dRol) {
         this.cRol = cRol;
@@ -27,4 +39,3 @@ public class Rol {
         this.dRol = dRol;
     }
 }
-

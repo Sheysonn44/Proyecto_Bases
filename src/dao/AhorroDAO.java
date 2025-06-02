@@ -5,14 +5,25 @@ import db.Conexion;
 
 import java.math.BigDecimal;
 import java.sql.*;
+
 /**
- * Clase AhorroDao sirve para gestionar las operaciones relacionadas con los ahorros.
- * Proporciona métodos para insertar, eliminar, editar, mostrar ahorros y manipular su saldo.
+ * Clase AhorroDao sirve para gestionar las operaciones relacionadas con los
+ * ahorros.
+ * Proporciona métodos para insertar, eliminar, editar, mostrar ahorros y
+ * manipular su saldo.
+ * 
+ * 1-06-2025 Clase AhorroDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class AhorroDAO {
 
-      /**
-     * Inserta un nuevo ahorro en la base de datos mediante un procedimiento almacenado.
+    /**
+     * Inserta un nuevo ahorro en la base de datos mediante un procedimiento
+     * almacenado.
      *
      * @param ahorro Objeto Ahorro que contiene la información a insertar.
      * @throws Exception Si ocurre un error durante la conexión o ejecución.
@@ -42,8 +53,9 @@ public class AhorroDAO {
         }
     }
 
- /**
-     * Elimina un ahorro específico por su ID utilizando un procedimiento almacenado.
+    /**
+     * Elimina un ahorro específico por su ID utilizando un procedimiento
+     * almacenado.
      *
      * @param cAhorro ID del ahorro a eliminar.
      * @throws Exception Si ocurre un error durante la operación.
@@ -67,7 +79,7 @@ public class AhorroDAO {
     /**
      * Edita un ahorro existente mediante un procedimiento almacenado.
      *
-     * @param ahorro Objeto Ahorro con los nuevos datos.
+     * @param ahorro  Objeto Ahorro con los nuevos datos.
      * @param cAhorro ID del ahorro que se desea actualizar.
      * @throws Exception Si ocurre un error en la operación.
      */
@@ -98,8 +110,9 @@ public class AhorroDAO {
         }
     }
 
-     /**
-     * Muestra todos los ahorros registrados consultando una vista en la base de datos.
+    /**
+     * Muestra todos los ahorros registrados consultando una vista en la base de
+     * datos.
      *
      * @throws Exception Si ocurre un error al obtener los datos.
      */
@@ -130,8 +143,10 @@ public class AhorroDAO {
             }
         }
     }
-     /**
-     * Obtiene el saldo actual (M_Actual) del ahorro vinculado a una cuenta bancaria.
+
+    /**
+     * Obtiene el saldo actual (M_Actual) del ahorro vinculado a una cuenta
+     * bancaria.
      *
      * @param cuentaBancaria ID de la cuenta bancaria asociada.
      * @return Saldo actual del ahorro.
@@ -150,17 +165,18 @@ public class AhorroDAO {
             }
         }
     }
-     /**
+
+    /**
      * Resta un monto especifico al saldo actual de una cuenta bancaria.
      *
      * @param cuentaBancaria ID de la cuenta bancaria a modificar.
-     * @param monto Monto a restar del ahorro.
+     * @param monto          Monto a restar del ahorro.
      * @throws Exception Si ocurre un error durante la actualizacion.
      */
     public void rebajarAhorro(int cuentaBancaria, BigDecimal monto) throws Exception {
         String sql = "UPDATE Ahorros SET M_Actual = M_Actual - ? WHERE C_Cuenta_Bancaria = ?";
         try (Connection conn = Conexion.getConexion();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setBigDecimal(1, monto);
             stmt.setInt(2, cuentaBancaria);
             stmt.executeUpdate();

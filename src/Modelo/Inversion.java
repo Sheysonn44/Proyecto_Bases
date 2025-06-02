@@ -9,6 +9,13 @@ import java.sql.Date;
  * pago,
  * destinatario, categoría, estado, tipo de moneda, tipo de movimiento y tipo de
  * transacción.
+ * 
+ * 1-06-2025 Clase Inversion.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class Inversion {
     private String nombre;

@@ -5,12 +5,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * Clase RolDAO para manejar las operaciones CRUD de los roles en la base de datos.
+ * Clase RolDAO para manejar las operaciones CRUD de los roles en la base de
+ * datos.
+ * * 1-06-2025 Clase UsuarioDAO*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
+
 public class UsuarioDAO {
-   /**
+    /**
      * Constructor que recibe la conexión a la base de datos.
      *
      * @param conexion Objeto Connection para conectarse a la base de datos.
@@ -21,7 +28,7 @@ public class UsuarioDAO {
         this.conexion = conexion;
     }
 
-      /**
+    /**
      * Inserta un nuevo rol utilizando un procedimiento almacenado.
      *
      * @param rol Objeto Rol que contiene los datos del rol a insertar.
@@ -39,7 +46,7 @@ public class UsuarioDAO {
             stmt.setInt(7, usuario.getcProvincia());
             stmt.setInt(8, usuario.getcCanton());
             stmt.setInt(9, usuario.getcDistrito());
-            stmt.registerOutParameter(10, Types.INTEGER); 
+            stmt.registerOutParameter(10, Types.INTEGER);
 
             stmt.executeUpdate();
             return stmt.getInt(10);
@@ -47,7 +54,8 @@ public class UsuarioDAO {
     }
 
     /**
-     * Actualiza los datos de un rol existente utilizando un procedimiento almacenado.
+     * Actualiza los datos de un rol existente utilizando un procedimiento
+     * almacenado.
      *
      * @param rol Objeto Rol con los datos actualizados.
      * @throws SQLException Si ocurre un error durante la ejecución de la consulta.
@@ -70,7 +78,7 @@ public class UsuarioDAO {
         }
     }
 
-      /**
+    /**
      * Elimina un rol de la base de datos utilizando un procedimiento almacenado.
      *
      * @param cRol Código del rol a eliminar.
@@ -84,18 +92,18 @@ public class UsuarioDAO {
         }
     }
 
-     /**
+    /**
      * Obtiene la lista de roles desde una vista en la base de datos.
      *
      * @return Lista de objetos Rol con los datos obtenidos.
      * @throws SQLException Si ocurre un error durante la ejecución de la consulta.
      */
-    
+
     public List<Usuario> listarUsuarios() throws SQLException {
         List<Usuario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM Vista_Usuarios"; 
+        String sql = "SELECT * FROM Vista_Usuarios";
         try (Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+                ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
                 Usuario u = new Usuario();

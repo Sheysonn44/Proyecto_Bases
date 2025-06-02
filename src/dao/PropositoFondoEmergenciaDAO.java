@@ -11,6 +11,13 @@ import java.util.List;
  * Clase DAO para manejar las operaciones CRUD de PropositoFondoEmergencia.
  * Utiliza procedimientos almacenados para realizar las operaciones en la base
  * de datos.
+ * 
+ * 1-06-2025 Clase public class PropositoFondoEmergenciaDAO.java
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class PropositoFondoEmergenciaDAO {
 

@@ -9,6 +9,13 @@ import java.sql.Date;
  * pago,
  * destinatario, categoría
  * de pago, tipo de transacción y tipo de moneda.
+ * 
+ * 1-06-2025 Clase Pago.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class Pago {
     private BigDecimal monto;

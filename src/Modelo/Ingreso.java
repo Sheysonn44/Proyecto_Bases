@@ -10,6 +10,12 @@ import java.sql.SQLException;
  * Clase que representa un ingreso en el sistema.
  * Contiene información sobre el usuario, cuenta bancaria, monto, fecha,
  * descripción, categoría, método de pago, tipo de moneda y destinatario.
+ * 1-06-2025 Clase Ingreso.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class Ingreso {
 

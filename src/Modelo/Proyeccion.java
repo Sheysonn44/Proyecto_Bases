@@ -8,6 +8,13 @@ import java.sql.Date;
  * estimado,
  * frecuencia, cuenta bancaria asociada, estado, tipo de proyección y tipo de
  * moneda.
+ * 
+ * 1-06-2025 Clase Proyeccion.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class Proyeccion {
     private int cProyeccion;

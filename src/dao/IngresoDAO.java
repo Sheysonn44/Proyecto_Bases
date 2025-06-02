@@ -11,16 +11,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 /**
- * Clase IngresoDAO es para gestionar las operaciones relacionadas con los ingresos.
- * Incluye métodos para insertar, eliminar, editar y listar ingresos desde la base de datos.
+ * Clase IngresoDAO es para gestionar las operaciones relacionadas con los
+ * ingresos.
+ * Incluye métodos para insertar, eliminar, editar y listar ingresos desde la
+ * base de datos.
+ * 
+ * 1-06-2025 Clase IngresoDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
  */
 public class IngresoDAO {
 
-
-/**
-     * Inserta un nuevo ingreso en la base de datos utilizando el procedimiento almacenado  InsertarIngreso}.
+    /**
+     * Inserta un nuevo ingreso en la base de datos utilizando el procedimiento
+     * almacenado InsertarIngreso}.
      *
      * @param ingreso con los datos del ingreso a registrar.
      * @throws Exception si ocurre un error durante la operación de base de datos.
@@ -40,14 +48,15 @@ public class IngresoDAO {
         cstmt.setInt(8, ingreso.getMetodoPago());
         cstmt.setInt(9, ingreso.getCtipoMoneda());
         cstmt.setString(10, ingreso.getdDestinatario());
-        cstmt.setInt(11,ingreso.getCtipotran());
+        cstmt.setInt(11, ingreso.getCtipotran());
 
         cstmt.execute();
 
     }
 
- /**
-     * Elimina un ingreso de la base de datos utilizando el procedimiento almacenado EliminarIngreso}.
+    /**
+     * Elimina un ingreso de la base de datos utilizando el procedimiento almacenado
+     * EliminarIngreso}.
      *
      * @param cIngreso Código del ingreso a eliminar.
      * @throws Exception si ocurre un error al eliminar el ingreso.
@@ -68,11 +77,11 @@ public class IngresoDAO {
         }
     }
 
-  /**
+    /**
      * Edita los datos de un ingreso existente mediante el procedimiento almacenado.
      *
-     * @param ingreso     los nuevos datos del ingreso.
-     * @param cIngreso    Código del ingreso que se va a editar.
+     * @param ingreso  los nuevos datos del ingreso.
+     * @param cIngreso Código del ingreso que se va a editar.
      * @throws Exception si ocurre un error durante la actualización.
      */
     public void editarIngreso(Ingreso ingreso, int cIngreso) throws Exception {
@@ -99,7 +108,7 @@ public class IngresoDAO {
         }
     }
 
-     /**
+    /**
      * Muestra una lista de ingresos utilizando la vista VistaIngresos.
      *
      * @throws Exception si ocurre un error al obtener los datos.
@@ -127,18 +136,20 @@ public class IngresoDAO {
         }
 
     }
- /**
-     * Inserta un ingreso mensual de forma directa en la tabla Ingresos. (sin procedimiento almacenado).
+
+    /**
+     * Inserta un ingreso mensual de forma directa en la tabla Ingresos. (sin
+     * procedimiento almacenado).
      *
-     * @param monto             Monto del ingreso.
-     * @param fecha             Fecha del ingreso.
-     * @param detalle           Descripción o detalle del ingreso.
-     * @param categoriaIngreso  ID de la categoría.
-     * @param cuentaBancaria    ID de la cuenta bancaria.
-     * @param idInversion       ID de inversión asociada (si aplica).
-     * @param tipoMoneda        ID del tipo de moneda.
-     * @param tipoMovimiento    Tipo de movimiento financiero.
-     * @param tipoTransaccion   Tipo de transacción.
+     * @param monto            Monto del ingreso.
+     * @param fecha            Fecha del ingreso.
+     * @param detalle          Descripción o detalle del ingreso.
+     * @param categoriaIngreso ID de la categoría.
+     * @param cuentaBancaria   ID de la cuenta bancaria.
+     * @param idInversion      ID de inversión asociada (si aplica).
+     * @param tipoMoneda       ID del tipo de moneda.
+     * @param tipoMovimiento   Tipo de movimiento financiero.
+     * @param tipoTransaccion  Tipo de transacción.
      * @throws Exception si ocurre un error al insertar.
      */
     public void insertarIngresoMensual(BigDecimal monto, Date fecha, String detalle,
@@ -148,7 +159,7 @@ public class IngresoDAO {
                 +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = Conexion.getConexion();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setBigDecimal(1, monto);
             stmt.setDate(2, new java.sql.Date(fecha.getTime()));
             stmt.setString(3, detalle);

@@ -9,9 +9,30 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * CargarDatosCryptoDAO.java
+ * 
+ * Esta clase se encarga de interactuar con la base de datos para insertar y
+ * obtener
+ * datos históricos de criptomonedas.
+ * 1-06-2025 Clase CargarDatosCryptoDAO.java*
+ * 
+ * @author Jocelyn Abarca
+ * @author Adrian Chavarria
+ * @author Marcos Montero
+ * @author Jeison Alvarez
+ */
 public class CargarDatosCryptoDAO {
 
-    // ✅ Insertar un nuevo precio histórico
+    // Insertar un nuevo precio histórico
+    /**
+     * Inserta un nuevo registro de precio histórico de una criptomoneda en la base
+     * de datos.
+     * 
+     * @param crypto Objeto Crypto que contiene el símbolo, fecha y precio de
+     *               cierre.
+     * @throws Exception Si ocurre un error al insertar el registro.
+     */
     public void insertar(Crypto crypto) throws Exception {
         String sql = "INSERT INTO PrecioHistoricoCripto (D_Simbolo, F_Fecha, M_PrecioCierre) VALUES (?, ?, ?)";
 
@@ -25,7 +46,15 @@ public class CargarDatosCryptoDAO {
         }
     }
 
-    // ✅ Obtener la última fecha registrada para una criptomoneda
+    // Obtener la última fecha registrada para una criptomoneda
+    /**
+     * Obtiene la última fecha registrada de precios históricos para una
+     * criptomoneda específica.
+     * 
+     * @param symbol Símbolo de la criptomoneda.
+     * @return La última fecha registrada, o null si no hay registros.
+     * @throws Exception Si ocurre un error al consultar la base de datos.
+     */
     public Date obtenerUltimaFecha(String symbol) throws Exception {
         String sql = "SELECT MAX(F_Fecha) FROM PrecioHistoricoCripto WHERE D_Simbolo = ?";
 
